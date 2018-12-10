@@ -31,15 +31,24 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "files": ["/bin", "/lib", "/npm-shrinkwrap.json", "/oclif.manifest.json"],
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
   "homepage": "https://github.com/jonallured/pear",
-  "keywords": ["oclif"],
+  "keywords": [
+    "oclif"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
     "bin": "pear",
-    "plugins": ["@oclif/plugin-help"]
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
   },
   "repository": "jonallured/pear",
   "scripts": {

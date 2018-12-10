@@ -20,7 +20,7 @@ $ npm install -g pear
 $ pear COMMAND
 running command...
 $ pear (-v|--version|version)
-pear/0.0.0 darwin-x64 node-v8.1.4
+pear/0.0.0 darwin-x64 node-v11.3.0
 $ pear --help [COMMAND]
 USAGE
   $ pear COMMAND
@@ -29,8 +29,27 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`pear add [FILE]`](#pear-add-file)
 * [`pear hello [FILE]`](#pear-hello-file)
 * [`pear help [COMMAND]`](#pear-help-command)
+* [`pear init`](#pear-init)
+* [`pear post-commit`](#pear-post-commit)
+
+## `pear add [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ pear add [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/add.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/add.ts)_
 
 ## `pear hello [FILE]`
 
@@ -68,4 +87,26 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4/src/commands/help.ts)_
+
+## `pear init`
+
+describe the command here
+
+```
+USAGE
+  $ pear init
+```
+
+_See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/init.ts)_
+
+## `pear post-commit`
+
+describe the command here
+
+```
+USAGE
+  $ pear post-commit
+```
+
+_See code: [src/commands/post-commit.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/post-commit.ts)_
 <!-- commandsstop -->
