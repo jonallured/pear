@@ -4,7 +4,7 @@ const fs = require('fs')
 const {execSync} = require('child_process')
 
 export default class PostCommit extends Command {
-  static description = 'describe the command here'
+  static description = 'git hook to amend commit with authors'
 
   async run() {
     // there are a few more things I need to do here, things like ensuring

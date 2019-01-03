@@ -11,7 +11,7 @@ interface Author {
 }
 
 export default class Add extends Command {
-  static description = 'this is the command that creates or updates a .pear file'
+  static description = 'add author to .pear file'
 
   static strict = false
 
