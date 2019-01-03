@@ -1,13 +1,8 @@
-pear
-====
+# pear
 
 Credit where credit is due.
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/pear.svg)](https://npmjs.org/package/pear)
 [![CircleCI](https://circleci.com/gh/jonallured/pear/tree/master.svg?style=shield)](https://circleci.com/gh/jonallured/pear/tree/master)
-[![Downloads/week](https://img.shields.io/npm/dw/pear.svg)](https://npmjs.org/package/pear)
-[![License](https://img.shields.io/npm/l/pear.svg)](https://github.com/jonallured/pear/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
