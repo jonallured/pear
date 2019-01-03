@@ -29,8 +29,6 @@ export default class PostCommit extends Command {
 
       const amendCommand = `git commit --amend --allow-empty --message "${newMessage}"`
       execSync(amendCommand)
-    } else {
-      this.log('no pear file')
     }
   }
 }
