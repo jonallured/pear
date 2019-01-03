@@ -20,7 +20,7 @@ $ npm install -g pear
 $ pear COMMAND
 running command...
 $ pear (-v|--version|version)
-pear/0.0.0 darwin-x64 node-v11.3.0
+pear/0.0.0 darwin-x64 node-v8.1.2
 $ pear --help [COMMAND]
 USAGE
   $ pear COMMAND
@@ -29,18 +29,30 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`pear add [FILE]`](#pear-add-file)
+* [`pear add`](#pear-add)
+* [`pear clear [FILE]`](#pear-clear-file)
 * [`pear help [COMMAND]`](#pear-help-command)
 * [`pear init`](#pear-init)
 * [`pear post-commit`](#pear-post-commit)
 
-## `pear add [FILE]`
+## `pear add`
+
+add author to .pear file
+
+```
+USAGE
+  $ pear add
+```
+
+_See code: [src/commands/add.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/add.ts)_
+
+## `pear clear [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ pear add [FILE]
+  $ pear clear [FILE]
 
 OPTIONS
   -f, --force
@@ -48,7 +60,7 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/add.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/add.ts)_
+_See code: [src/commands/clear.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/clear.ts)_
 
 ## `pear help [COMMAND]`
 
@@ -69,7 +81,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4
 
 ## `pear init`
 
-describe the command here
+create the ~/.pear-authors file
 
 ```
 USAGE
@@ -80,7 +92,7 @@ _See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.0.0
 
 ## `pear post-commit`
 
-describe the command here
+git hook to amend commit with authors
 
 ```
 USAGE
