@@ -1,51 +1,41 @@
 ---
 version: 2
 jobs:
-  node-latest: &test
+  build-and-test:
     docker:
       - image: node:latest
-    working_directory: ~/cli
+    working_directory: ~/pear
     steps:
       - checkout
-      - restore_cache: &restore_cache
-          keys:
-            - v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "yarn.lock"}}
-            - v1-npm-{{checksum ".circleci/config.yml"}}
+
+      - restore_cache:
+          name: Restore yarn cache
+          key: yarn-{{ checksum "yarn.lock" }}
+
       - run:
-          name: Install dependencies
-          command: yarn
-      - run: ./bin/run --version
-      - run: ./bin/run --help
-      - run:
-          name: Testing
-          command: yarn test
-  node-8:
-    <<: *test
-    docker:
-      - image: node:8
-  cache:
-    <<: *test
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: yarn
+          name: Yarn install
+          command: yarn install
+
       - save_cache:
-          key: v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "yarn.lock"}}
+          name: Save yarn cache
+          key: yarn-{{ checksum "yarn.lock" }}
           paths:
-            - ~/cli/node_modules
-            - /usr/local/share/.cache/yarn
-            - /usr/local/share/.config/yarn
+            - node_modules/
+
+      - run:
+          name: Get version
+          command: ./bin/run --version
+
+      - run:
+          name: Show help
+          command: ./bin/run --help
+
+      - run:
+          name: Run tests
+          command: yarn test
 
 workflows:
   version: 2
-  "pear":
+  pear:
     jobs:
-      - node-latest
-      - node-8
-      - cache:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+      - build-and-test
