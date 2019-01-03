@@ -30,7 +30,6 @@ USAGE
 # Commands
 <!-- commands -->
 * [`pear add [FILE]`](#pear-add-file)
-* [`pear hello [FILE]`](#pear-hello-file)
 * [`pear help [COMMAND]`](#pear-help-command)
 * [`pear init`](#pear-init)
 * [`pear post-commit`](#pear-post-commit)
@@ -50,26 +49,6 @@ OPTIONS
 ```
 
 _See code: [src/commands/add.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/add.ts)_
-
-## `pear hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ pear hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ pear hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/hello.ts)_
 
 ## `pear help [COMMAND]`
 
