@@ -20,6 +20,6 @@ export default class Init extends Command {
     }
     // create an empty one if not
 
-    this.log('🍐 Pear is setup and ready to help!')
+    this.log('Coauthors file created! 🍐')
   }
 }
