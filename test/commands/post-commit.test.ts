@@ -1,6 +1,6 @@
 import {expect, test} from '@oclif/test'
 
-describe('post-commit', () => {
+xdescribe('post-commit', () => {
   test
     .stdout()
     .command(['post-commit'])
