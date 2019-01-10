@@ -132,6 +132,16 @@
     debug "^4.1.0"
     semver "^5.6.0"
 
+"@oclif/command@^1.5.1":
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/@oclif/command/-/command-1.5.8.tgz#cd09d4f3183123548cb25d1b12b92e41277ac3e9"
+  integrity sha512-+Xuqp7by9jmB+GvR2r450wUXkCpZVdeOXQD0mLSEm3h+Mxhp0NPHuhzXZQvLI0/2fXR+cmJLv1CfpaCYaflL/g==
+  dependencies:
+    "@oclif/errors" "^1.2.2"
+    "@oclif/parser" "^3.7.2"
+    debug "^4.1.0"
+    semver "^5.6.0"
+
 "@oclif/config@^1", "@oclif/config@^1.8.7":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@oclif/config/-/config-1.9.0.tgz#f0df483bad3988f24cddd4d85fdc8eafa9eb7ff2"
@@ -157,7 +167,7 @@
     qqjs "^0.3.10"
     tslib "^1.9.3"
 
-"@oclif/errors@^1.2.2":
+"@oclif/errors@^1.2.1", "@oclif/errors@^1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@oclif/errors/-/errors-1.2.2.tgz#9d8f269b15f13d70aa93316fed7bebc24688edc2"
   integrity sha512-Eq8BFuJUQcbAPVofDxwdE0bL14inIiwt5EaKRVY9ZDIG11jwdXZqiQEECJx0VfnLyUZdYfRd/znDI/MytdJoKg==
@@ -177,6 +187,15 @@
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@oclif/parser/-/parser-3.7.0.tgz#cda3eea341e87cc7390511cf369a0126d0b39a93"
   integrity sha512-CtRbCBJQ8prt9o3nCTSRi/UEw68t7mUf19vu3QKbh6sGc6BkD7OAX6Hfjxif636LSlR+N8eh3PELw9SxHdJcbQ==
+  dependencies:
+    "@oclif/linewrap" "^1.0.0"
+    chalk "^2.4.1"
+    tslib "^1.9.3"
+
+"@oclif/parser@^3.7.2":
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/@oclif/parser/-/parser-3.7.2.tgz#b06c73377a1f027f10444109a8a4a6cc31ffd8ba"
+  integrity sha512-ssYXztaf9TuOGCJQOYMg62L1Q4y2lB4wZORWng+Iy0ckP2A6IUnQy97V8YjAJkkohYZOu3Mga8LGfQcf+xdIIw==
   dependencies:
     "@oclif/linewrap" "^1.0.0"
     chalk "^2.4.1"
@@ -581,6 +600,36 @@ cli-ux@^4.9.0:
     lodash "^4.17.11"
     password-prompt "^1.0.7"
     semver "^5.6.0"
+    strip-ansi "^5.0.0"
+    supports-color "^5.5.0"
+    supports-hyperlinks "^1.0.1"
+    treeify "^1.1.0"
+    tslib "^1.9.3"
+
+cli-ux@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/cli-ux/-/cli-ux-5.0.0.tgz#62dd504d92cb5e4d03c63b67bf76f049046e8bdc"
+  integrity sha512-oW3MsKNPYG3PT2DUEs+dAMaackpzO0bof6JTdqk2SEch+pww93C+3hpXKvSycMPBEgjGPkJ3tl39VkebrkckAA==
+  dependencies:
+    "@oclif/command" "^1.5.1"
+    "@oclif/errors" "^1.2.1"
+    "@oclif/linewrap" "^1.0.0"
+    "@oclif/screen" "^1.0.3"
+    ansi-escapes "^3.1.0"
+    ansi-styles "^3.2.1"
+    cardinal "^2.1.1"
+    chalk "^2.4.1"
+    clean-stack "^2.0.0"
+    extract-stack "^1.0.0"
+    fs-extra "^7.0.0"
+    hyperlinker "^1.0.0"
+    indent-string "^3.2.0"
+    is-wsl "^1.1.0"
+    lodash "^4.17.11"
+    natural-orderby "^1.0.2"
+    password-prompt "^1.0.7"
+    semver "^5.6.0"
+    string-width "^2.1.1"
     strip-ansi "^5.0.0"
     supports-color "^5.5.0"
     supports-hyperlinks "^1.0.1"
@@ -1767,6 +1816,11 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+natural-orderby@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/natural-orderby/-/natural-orderby-1.0.2.tgz#287a4778217fbf6af0d704129d55ae90450f7a88"
+  integrity sha512-V2CMcGpkL078lsYpUUjuZrFsYzdvL0eETYvw9N4dwQsz2gV8QMbKyJBgGdF6Xwg9OuZBzCvfbKu8ex2JXp8Cbw==
 
 nice-try@^1.0.4:
   version "1.0.5"
