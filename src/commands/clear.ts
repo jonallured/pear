@@ -11,5 +11,7 @@ export default class Clear extends Command {
     if (fs.existsSync(path)) {
       fs.unlinkSync(path)
     }
+
+    this.log('Coauthors cleared! 🍐')
   }
 }
