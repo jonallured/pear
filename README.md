@@ -5,6 +5,7 @@ Credit where credit is due.
 [![CircleCI](https://circleci.com/gh/jonallured/pear/tree/master.svg?style=shield)](https://circleci.com/gh/jonallured/pear/tree/master)
 
 <!-- toc -->
+* [pear](#pear)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -15,7 +16,7 @@ $ npm install -g pear
 $ pear COMMAND
 running command...
 $ pear (-v|--version|version)
-pear/0.0.0 darwin-x64 node-v8.1.2
+pear/0.0.1 darwin-x64 node-v11.3.0
 $ pear --help [COMMAND]
 USAGE
   $ pear COMMAND
@@ -25,7 +26,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`pear add`](#pear-add)
-* [`pear clear [FILE]`](#pear-clear-file)
+* [`pear clear`](#pear-clear)
 * [`pear help [COMMAND]`](#pear-help-command)
 * [`pear init`](#pear-init)
 * [`pear post-commit`](#pear-post-commit)
@@ -39,23 +40,18 @@ USAGE
   $ pear add
 ```
 
-_See code: [src/commands/add.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/add.ts)_
+_See code: [src/commands/add.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/add.ts)_
 
-## `pear clear [FILE]`
+## `pear clear`
 
-describe the command here
+clear current .pear file
 
 ```
 USAGE
-  $ pear clear [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  $ pear clear
 ```
 
-_See code: [src/commands/clear.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/clear.ts)_
+_See code: [src/commands/clear.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/clear.ts)_
 
 ## `pear help [COMMAND]`
 
@@ -83,7 +79,7 @@ USAGE
   $ pear init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/init.ts)_
 
 ## `pear post-commit`
 
@@ -94,5 +90,5 @@ USAGE
   $ pear post-commit
 ```
 
-_See code: [src/commands/post-commit.ts](https://github.com/jonallured/pear/blob/v0.0.0/src/commands/post-commit.ts)_
+_See code: [src/commands/post-commit.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/post-commit.ts)_
 <!-- commandsstop -->
