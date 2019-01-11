@@ -1,12 +1,14 @@
 {
-  "name": "pear",
+  "name": "@jonallured/pear",
   "description": "Credit where credit is due.",
   "version": "0.0.1",
   "author": "Jon Allured @jonallured",
   "bin": {
     "pear": "./bin/run"
   },
-  "bugs": "https://github.com/jonallured/pear/issues",
+  "bugs": {
+    "url": "https://github.com/jonallured/pear/issues"
+  },
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -51,7 +53,10 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "jonallured/pear",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonallured/pear.git"
+  },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
@@ -59,5 +64,9 @@
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }

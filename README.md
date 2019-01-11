@@ -12,11 +12,11 @@ Credit where credit is due.
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g pear
+$ npm install -g @jonallured/pear
 $ pear COMMAND
 running command...
 $ pear (-v|--version|version)
-pear/0.0.1 darwin-x64 node-v11.3.0
+@jonallured/pear/0.0.1 darwin-x64 node-v11.3.0
 $ pear --help [COMMAND]
 USAGE
   $ pear COMMAND
