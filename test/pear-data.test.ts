@@ -1,5 +1,6 @@
 import {PearConfig} from '../src/pear-config'
-import {createdMessage, foundMessage, initialData, PearData} from '../src/pear-data'
+import {initialData, PearData} from '../src/pear-data'
+import {PearMessages} from '../src/pear-messages'
 
 const fs = require('fs')
 const os = require('os')
@@ -14,7 +15,7 @@ it('creates the file and returns the created message when data file not found', 
 
   const message = PearData.init()
 
-  expect(message).toEqual(createdMessage)
+  expect(message).toEqual(PearMessages.createdDataFile)
 
   const expectedPath = `path/to/missing/${PearConfig.dataFile}`
   expect(fs.writeFileSync).toHaveBeenCalledWith(expectedPath, initialData)
@@ -27,6 +28,6 @@ it('returns the found message when data file exists', () => {
 
   const message = PearData.init()
 
-  expect(message).toEqual(foundMessage)
+  expect(message).toEqual(PearMessages.foundDataFile)
   expect(fs.writeFileSync).not.toHaveBeenCalled()
 })

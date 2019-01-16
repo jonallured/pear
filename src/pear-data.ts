@@ -1,10 +1,8 @@
 import {PearConfig} from './pear-config'
+import {PearMessages} from './pear-messages'
 
 const fs = require('fs')
 const os = require('os')
-
-export const foundMessage = 'Found existing data file! 🍐'
-export const createdMessage = 'Created data file! 🍐'
 
 const blankSlate = {current: [], known: []}
 export const initialData = JSON.stringify(blankSlate)
@@ -12,10 +10,10 @@ export const initialData = JSON.stringify(blankSlate)
 export class PearData {
   static init = () => {
     const path = [os.homedir(), PearConfig.dataFile].join('/')
-    if (fs.existsSync(path)) return foundMessage
+    if (fs.existsSync(path)) return PearMessages.foundDataFile
 
     fs.writeFileSync(path, initialData)
-    return createdMessage
+    return PearMessages.createdDataFile
   }
 
   private readonly path: string
