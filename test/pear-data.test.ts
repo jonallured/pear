@@ -3,21 +3,19 @@ import {initialData, PearData} from '../src/pear-data'
 import {PearMessages} from '../src/pear-messages'
 
 const fs = require('fs')
-const os = require('os')
 
 it('creates the file and returns the created message when data file not found', () => {
   fs.existsSync = jest.fn()
   fs.existsSync.mockReturnValue(false)
   fs.writeFileSync = jest.fn()
 
-  os.homedir = jest.fn()
-  os.homedir.mockReturnValue('path/to/missing')
+  const expectedPath = 'path/to/missing/file'
+  PearConfig.dataPath = jest.fn(() => expectedPath)
 
   const message = PearData.init()
 
   expect(message).toEqual(PearMessages.createdDataFile)
 
-  const expectedPath = `path/to/missing/${PearConfig.dataFile}`
   expect(fs.writeFileSync).toHaveBeenCalledWith(expectedPath, initialData)
 })
 
