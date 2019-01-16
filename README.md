@@ -29,6 +29,7 @@ USAGE
 * [`pear clear`](#pear-clear)
 * [`pear help [COMMAND]`](#pear-help-command)
 * [`pear init`](#pear-init)
+* [`pear known [FILE]`](#pear-known-file)
 * [`pear post-commit`](#pear-post-commit)
 
 ## `pear add`
@@ -72,7 +73,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4
 
 ## `pear init`
 
-create the ~/.pear-authors file
+create the ~/.pear-data file
 
 ```
 USAGE
@@ -80,6 +81,22 @@ USAGE
 ```
 
 _See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/init.ts)_
+
+## `pear known [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ pear known [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/known.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/known.ts)_
 
 ## `pear post-commit`
 

@@ -12,3 +12,8 @@ export const noPearAuthorsFileError: PearError = {
   exit: 200,
   message: 'you have to init'
 }
+
+export const noPearDataFileError: PearError = {
+  exit: 300,
+  message: 'you have to init'
+}
