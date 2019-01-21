@@ -16,7 +16,7 @@ $ npm install -g @jonallured/pear
 $ pear COMMAND
 running command...
 $ pear (-v|--version|version)
-@jonallured/pear/0.0.1 darwin-x64 node-v11.3.0
+@jonallured/pear/0.0.1 darwin-x64 node-v11.6.0
 $ pear --help [COMMAND]
 USAGE
   $ pear COMMAND
@@ -27,6 +27,7 @@ USAGE
 <!-- commands -->
 * [`pear add`](#pear-add)
 * [`pear clear`](#pear-clear)
+* [`pear current [FILE]`](#pear-current-file)
 * [`pear help [COMMAND]`](#pear-help-command)
 * [`pear init`](#pear-init)
 * [`pear known`](#pear-known)
@@ -54,6 +55,22 @@ USAGE
 ```
 
 _See code: [src/commands/clear.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/clear.ts)_
+
+## `pear current [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ pear current [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/current.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current.ts)_
 
 ## `pear help [COMMAND]`
 

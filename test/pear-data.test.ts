@@ -32,6 +32,23 @@ describe('PearData.init', () => {
   })
 })
 
+describe('pearData.current', () => {
+  it('returns an empty array when there are no current authors', () => {
+    const path = 'test/fixtures/blank-slate-pear-data'
+    const pearData = new PearData(path)
+    expect(pearData.current).toEqual([])
+  })
+
+  it('returns the array of PearAuthor objects when there are known authors', () => {
+    const path = 'test/fixtures/two-current-authors'
+    const pearData = new PearData(path)
+    const orta = {username: 'orta', name: 'Orta Therox', email: 'orta@example.com'}
+    const erik = {username: 'erikkrietsch', name: 'Erik Krietsch', email: 'erik@example.com'}
+
+    expect(pearData.current).toEqual([orta, erik])
+  })
+})
+
 describe('pearData.known', () => {
   it('returns an empty array when there are no known authors', () => {
     const path = 'test/fixtures/blank-slate-pear-data'
