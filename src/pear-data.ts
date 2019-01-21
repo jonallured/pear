@@ -20,7 +20,7 @@ export class PearData {
     return PearMessages.createdDataFile
   }
 
-  private static convertToPearAuthor = (object: any): PearAuthor => {
+  private static convertToPearAuthor(object: any): PearAuthor {
     return new PearAuthor(object.email, object.name, object.username)
   }
 
@@ -78,7 +78,7 @@ export class PearData {
     return trailers.join('\n')
   }
 
-  private loadJson = () => {
+  private loadJson() {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
     const data = PearUtils.readFile(this.path)
     const parsed = JSON.parse(data)
@@ -88,7 +88,7 @@ export class PearData {
     this._json = {current, known}
   }
 
-  private writeJson = (json: PearDataFile) => {
+  private writeJson(json: PearDataFile) {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
     const data = JSON.stringify(json)
     PearUtils.writeFile(this.path, data)
@@ -96,12 +96,12 @@ export class PearData {
     this._json = json
   }
 
-  private getNewAuthors = async (usernames: string[]): Promise<PearAuthor[]> => {
+  private async getNewAuthors(usernames: string[]): Promise<PearAuthor[]> {
     const results: Promise<PearAuthor>[] = await usernames.map(arg => this.getAuthorInfo(arg))
     return Promise.all(results)
   }
 
-  private getAuthorInfo = async (username: string): Promise<PearAuthor> => {
+  private async getAuthorInfo(username: string): Promise<PearAuthor> {
     const name = await PearUtils.prompt(`${username} not found\nname for ${username}`)
     const email = await PearUtils.prompt(`email for ${username}`)
     return new PearAuthor(email, name, username)
