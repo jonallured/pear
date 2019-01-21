@@ -25,6 +25,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`pear amend [FILE]`](#pear-amend-file)
 * [`pear current`](#pear-current)
 * [`pear current:add`](#pear-currentadd)
 * [`pear current:clear`](#pear-currentclear)
@@ -34,6 +35,22 @@ USAGE
 * [`pear known`](#pear-known)
 * [`pear known:add`](#pear-knownadd)
 * [`pear post-commit`](#pear-post-commit)
+
+## `pear amend [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ pear amend [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/amend.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/amend.ts)_
 
 ## `pear current`
 

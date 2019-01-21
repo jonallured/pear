@@ -17,3 +17,8 @@ export const noPearDataFileError: PearError = {
   exit: 300,
   message: 'you have to init'
 }
+
+export const trailersFoundError: PearError = {
+  exit: 400,
+  message: 'trailers already in message'
+}
