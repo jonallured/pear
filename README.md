@@ -29,7 +29,8 @@ USAGE
 * [`pear clear`](#pear-clear)
 * [`pear help [COMMAND]`](#pear-help-command)
 * [`pear init`](#pear-init)
-* [`pear known [FILE]`](#pear-known-file)
+* [`pear known`](#pear-known)
+* [`pear known:add`](#pear-knownadd)
 * [`pear post-commit`](#pear-post-commit)
 
 ## `pear add`
@@ -82,21 +83,27 @@ USAGE
 
 _See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/init.ts)_
 
-## `pear known [FILE]`
+## `pear known`
 
-describe the command here
+list known authors
 
 ```
 USAGE
-  $ pear known [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  $ pear known
 ```
 
-_See code: [src/commands/known.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/known.ts)_
+_See code: [src/commands/known/index.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/known/index.ts)_
+
+## `pear known:add`
+
+list known authors
+
+```
+USAGE
+  $ pear known:add
+```
+
+_See code: [src/commands/known/add.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/known/add.ts)_
 
 ## `pear post-commit`
 
