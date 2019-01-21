@@ -132,3 +132,13 @@ describe('pearData.addKnown', () => {
     })
   })
 })
+
+describe('pearData.clearCurrent', () => {
+  it('sets the current authors to empty array', () => {
+    const path = 'test/fixtures/two-current-authors'
+    const pearData = new PearData(path)
+    pearData.clearCurrent()
+
+    expect(pearData.current).toEqual([])
+  })
+})
