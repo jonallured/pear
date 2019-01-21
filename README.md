@@ -25,7 +25,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`pear amend [FILE]`](#pear-amend-file)
+* [`pear amend`](#pear-amend)
 * [`pear current`](#pear-current)
 * [`pear current:add`](#pear-currentadd)
 * [`pear current:clear`](#pear-currentclear)
@@ -34,20 +34,14 @@ USAGE
 * [`pear init`](#pear-init)
 * [`pear known`](#pear-known)
 * [`pear known:add`](#pear-knownadd)
-* [`pear post-commit`](#pear-post-commit)
 
-## `pear amend [FILE]`
+## `pear amend`
 
-describe the command here
+amend last commit message with trailers
 
 ```
 USAGE
-  $ pear amend [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  $ pear amend
 ```
 
 _See code: [src/commands/amend.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/amend.ts)_
@@ -145,15 +139,4 @@ USAGE
 ```
 
 _See code: [src/commands/known/add.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/known/add.ts)_
-
-## `pear post-commit`
-
-git hook to amend commit with authors
-
-```
-USAGE
-  $ pear post-commit
-```
-
-_See code: [src/commands/post-commit.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/post-commit.ts)_
 <!-- commandsstop -->
