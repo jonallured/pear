@@ -41,6 +41,19 @@ export class PearData {
     return this.json!.known || []
   }
 
+  addCurrent = async (usernames: string[]) => {
+    if (usernames.length < 1) throw noUsernamesError
+    const knownUsernames: string[] = this.known.map(author => author.username)
+    const newUsernames: string[] = usernames.filter(username => !knownUsernames.includes(username))
+
+    if (newUsernames.length > 0) await this.addKnown(newUsernames)
+    const newCurrentAuthors = this.known.filter(author => usernames.includes(author.username))
+
+    const current = this.current.concat(newCurrentAuthors)
+    const json = {current, known: this.known}
+    this.writeJson(json)
+  }
+
   addKnown = async (usernames: string[]) => {
     if (usernames.length < 1) throw noUsernamesError
     const knownUsernames: string[] = this.known.map(author => author.username)

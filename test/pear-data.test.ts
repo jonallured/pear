@@ -61,6 +61,44 @@ describe('pearData.known', () => {
   })
 })
 
+describe('pearData.addCurrent', () => {
+  describe('with a known author', () => {
+    it('adds new current author', async () => {
+      const mockPrompt = jest.fn()
+      mockPrompt.mockReturnValueOnce(erik.name)
+      mockPrompt.mockReturnValueOnce(erik.email)
+      PearUtils.prompt = mockPrompt
+      const mockFileWrite = jest.fn()
+      PearUtils.writeFile = mockFileWrite
+
+      const path = 'test/fixtures/two-known-authors'
+      const pearData = new PearData(path)
+
+      await pearData.addCurrent([erik.username])
+      const expectedData = JSON.stringify({current: [erik], known: [erik, orta]})
+      expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
+    })
+  })
+
+  describe('with an unknown author', () => {
+    it('adds a new known and current author', async () => {
+      const mockPrompt = jest.fn()
+      mockPrompt.mockReturnValueOnce(josh.name)
+      mockPrompt.mockReturnValueOnce(josh.email)
+      PearUtils.prompt = mockPrompt
+      const mockFileWrite = jest.fn()
+      PearUtils.writeFile = mockFileWrite
+
+      const path = 'test/fixtures/two-known-authors'
+      const pearData = new PearData(path)
+
+      await pearData.addCurrent([josh.username])
+      const expectedData = JSON.stringify({current: [josh], known: [erik, orta, josh]})
+      expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
+    })
+  })
+})
+
 describe('pearData.addKnown', () => {
   // xit('skips already known authors')
   it('adds new known authors', async () => {
