@@ -16,7 +16,7 @@ $ npm install -g @jonallured/pear
 $ pear COMMAND
 running command...
 $ pear (-v|--version|version)
-@jonallured/pear/0.0.1 darwin-x64 node-v11.6.0
+@jonallured/pear/0.1.0 darwin-x64 node-v11.6.0
 $ pear --help [COMMAND]
 USAGE
   $ pear COMMAND
@@ -44,7 +44,7 @@ USAGE
   $ pear amend
 ```
 
-_See code: [src/commands/amend.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/amend.ts)_
+_See code: [src/commands/amend.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/amend.ts)_
 
 ## `pear current`
 
@@ -55,7 +55,7 @@ USAGE
   $ pear current
 ```
 
-_See code: [src/commands/current/index.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/index.ts)_
+_See code: [src/commands/current/index.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/current/index.ts)_
 
 ## `pear current:add`
 
@@ -66,7 +66,7 @@ USAGE
   $ pear current:add
 ```
 
-_See code: [src/commands/current/add.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/add.ts)_
+_See code: [src/commands/current/add.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/current/add.ts)_
 
 ## `pear current:clear`
 
@@ -77,7 +77,7 @@ USAGE
   $ pear current:clear
 ```
 
-_See code: [src/commands/current/clear.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/clear.ts)_
+_See code: [src/commands/current/clear.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/current/clear.ts)_
 
 ## `pear current:trailer`
 
@@ -88,7 +88,7 @@ USAGE
   $ pear current:trailer
 ```
 
-_See code: [src/commands/current/trailer.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/trailer.ts)_
+_See code: [src/commands/current/trailer.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/current/trailer.ts)_
 
 ## `pear help [COMMAND]`
 
@@ -116,7 +116,7 @@ USAGE
   $ pear init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/init.ts)_
 
 ## `pear known`
 
@@ -127,7 +127,7 @@ USAGE
   $ pear known
 ```
 
-_See code: [src/commands/known/index.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/known/index.ts)_
+_See code: [src/commands/known/index.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/known/index.ts)_
 
 ## `pear known:add`
 
@@ -138,5 +138,5 @@ USAGE
   $ pear known:add
 ```
 
-_See code: [src/commands/known/add.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/known/add.ts)_
+_See code: [src/commands/known/add.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/known/add.ts)_
 <!-- commandsstop -->
