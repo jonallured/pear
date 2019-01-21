@@ -135,10 +135,15 @@ describe('pearData.addKnown', () => {
 
 describe('pearData.clearCurrent', () => {
   it('sets the current authors to empty array', () => {
+    const mockFileWrite = jest.fn()
+    PearUtils.writeFile = mockFileWrite
+
     const path = 'test/fixtures/two-current-authors'
     const pearData = new PearData(path)
     pearData.clearCurrent()
 
+    const expectedData = JSON.stringify({current: [], known: [erik, orta]})
+    expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     expect(pearData.current).toEqual([])
   })
 })
