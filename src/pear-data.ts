@@ -20,6 +20,10 @@ export class PearData {
     return PearMessages.createdDataFile
   }
 
+  private static convertToPearAuthor = (object: any): PearAuthor => {
+    return new PearAuthor(object.email, object.name, object.username)
+  }
+
   private readonly path: string
   private _json?: PearDataFile
 
@@ -69,17 +73,26 @@ export class PearData {
     this.writeJson(json)
   }
 
+  trailer = (): string => {
+    const trailers = this.current.map(author => author.trailer)
+    return trailers.join('\n')
+  }
+
   private loadJson = () => {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
     const data = PearUtils.readFile(this.path)
-    this._json = JSON.parse(data)
+    const parsed = JSON.parse(data)
+    const current = parsed.current.map((args: any) => PearData.convertToPearAuthor(args))
+    const known = parsed.known.map((args: any) => PearData.convertToPearAuthor(args))
+
+    this._json = {current, known}
   }
 
   private writeJson = (json: PearDataFile) => {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
     const data = JSON.stringify(json)
     PearUtils.writeFile(this.path, data)
-    // maybe this should go through `loadJson` instead?
+
     this._json = json
   }
 
