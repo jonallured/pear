@@ -8,4 +8,8 @@ export class PearAuthor {
     this.name = name
     this.username = username
   }
+
+  get trailer(): string {
+    return `${this.name} <${this.email}>`
+  }
 }
