@@ -3,7 +3,7 @@ import {initialData, PearData} from '../src/pear-data'
 import {PearMessages} from '../src/pear-messages'
 import {PearUtils} from '../src/pear-utils'
 
-import {erik, orta} from './fixtures/test-authors'
+import {erik, josh, orta} from './fixtures/test-authors'
 
 describe('PearData.init', () => {
   it('creates the file and returns the created message when data file not found', () => {
@@ -58,5 +58,24 @@ describe('pearData.known', () => {
     const pearData = new PearData(path)
 
     expect(pearData.known).toEqual([erik, orta])
+  })
+})
+
+describe('pearData.addKnown', () => {
+  // xit('skips already known authors')
+  it('adds new known authors', async () => {
+    const mockPrompt = jest.fn()
+    mockPrompt.mockReturnValueOnce(josh.name)
+    mockPrompt.mockReturnValueOnce(josh.email)
+    PearUtils.prompt = mockPrompt
+    const mockFileWrite = jest.fn()
+    PearUtils.writeFile = mockFileWrite
+
+    const path = 'test/fixtures/two-known-authors'
+    const pearData = new PearData(path)
+
+    await pearData.addKnown([josh.username])
+    const expectedData = JSON.stringify({current: [], known: [erik, orta, josh]})
+    expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
   })
 })
