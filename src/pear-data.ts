@@ -64,6 +64,11 @@ export class PearData {
     this.writeJson(json)
   }
 
+  clearCurrent = () => {
+    const json = {current: [], known: this.known}
+    this.writeJson(json)
+  }
+
   private loadJson = () => {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
     const data = PearUtils.readFile(this.path)
