@@ -25,52 +25,59 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`pear add`](#pear-add)
-* [`pear clear`](#pear-clear)
-* [`pear current [FILE]`](#pear-current-file)
+* [`pear current`](#pear-current)
+* [`pear current:add`](#pear-currentadd)
+* [`pear current:clear`](#pear-currentclear)
+* [`pear current:trailer`](#pear-currenttrailer)
 * [`pear help [COMMAND]`](#pear-help-command)
 * [`pear init`](#pear-init)
 * [`pear known`](#pear-known)
 * [`pear known:add`](#pear-knownadd)
 * [`pear post-commit`](#pear-post-commit)
 
-## `pear add`
+## `pear current`
 
-add author to .pear file
-
-```
-USAGE
-  $ pear add
-```
-
-_See code: [src/commands/add.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/add.ts)_
-
-## `pear clear`
-
-clear current .pear file
+list current authors
 
 ```
 USAGE
-  $ pear clear
+  $ pear current
 ```
 
-_See code: [src/commands/clear.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/clear.ts)_
+_See code: [src/commands/current/index.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/index.ts)_
 
-## `pear current [FILE]`
+## `pear current:add`
 
-describe the command here
+add current author
 
 ```
 USAGE
-  $ pear current [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  $ pear current:add
 ```
 
-_See code: [src/commands/current.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current.ts)_
+_See code: [src/commands/current/add.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/add.ts)_
+
+## `pear current:clear`
+
+clear current authors
+
+```
+USAGE
+  $ pear current:clear
+```
+
+_See code: [src/commands/current/clear.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/clear.ts)_
+
+## `pear current:trailer`
+
+list current authors in trailer format
+
+```
+USAGE
+  $ pear current:trailer
+```
+
+_See code: [src/commands/current/trailer.ts](https://github.com/jonallured/pear/blob/v0.0.1/src/commands/current/trailer.ts)_
 
 ## `pear help [COMMAND]`
 
@@ -113,7 +120,7 @@ _See code: [src/commands/known/index.ts](https://github.com/jonallured/pear/blob
 
 ## `pear known:add`
 
-list known authors
+add known author
 
 ```
 USAGE

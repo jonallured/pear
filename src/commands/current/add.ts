@@ -5,7 +5,7 @@ import {PearError} from '../../pear-errors'
 import {PearMessages} from '../../pear-messages'
 
 export default class AddCurrent extends Command {
-  static description = 'add known author'
+  static description = 'add current author'
 
   static strict = false
 
