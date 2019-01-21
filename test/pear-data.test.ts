@@ -33,12 +33,12 @@ describe('PearData.init', () => {
 
 describe('pearData.current', () => {
   it('returns an empty array when there are no current authors', () => {
-    const path = 'test/fixtures/blank-slate-pear-data'
+    const path = 'test/fixtures/two-known-authors'
     const pearData = new PearData(path)
     expect(pearData.current).toEqual([])
   })
 
-  it('returns the array of PearAuthor objects when there are known authors', () => {
+  it('returns the array of PearAuthor objects when there are current authors', () => {
     const path = 'test/fixtures/two-current-authors'
     const pearData = new PearData(path)
 
