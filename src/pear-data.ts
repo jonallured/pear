@@ -2,8 +2,7 @@ import {PearAuthor} from './pear-author'
 import {PearConfig} from './pear-config'
 import {noPearDataFileError} from './pear-errors'
 import {PearMessages} from './pear-messages'
-
-const fs = require('fs')
+import {PearUtils} from './pear-utils'
 
 interface PearDataFile {
   current: PearAuthor[]
@@ -15,9 +14,9 @@ export const initialData = JSON.stringify(blankSlate)
 
 export class PearData {
   static init = () => {
-    if (fs.existsSync(PearConfig.dataPath())) return PearMessages.foundDataFile
+    if (PearUtils.fileExists(PearConfig.dataPath())) return PearMessages.foundDataFile
 
-    fs.writeFileSync(PearConfig.dataPath(), initialData)
+    PearUtils.writeFile(PearConfig.dataPath(), initialData)
     return PearMessages.createdDataFile
   }
 
@@ -43,8 +42,8 @@ export class PearData {
   }
 
   private loadJson = () => {
-    if (!fs.existsSync(this.path)) throw noPearDataFileError
-    const data = fs.readFileSync(this.path, {encoding: 'utf-8'})
+    if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
+    const data = PearUtils.readFile(this.path)
     this._json = JSON.parse(data)
   }
 }
