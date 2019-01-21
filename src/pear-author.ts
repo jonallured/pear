@@ -10,6 +10,6 @@ export class PearAuthor {
   }
 
   get trailer(): string {
-    return `${this.name} <${this.email}>`
+    return `Co-authored-by: ${this.name} <${this.email}>`
   }
 }
