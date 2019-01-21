@@ -3,6 +3,8 @@ import {initialData, PearData} from '../src/pear-data'
 import {PearMessages} from '../src/pear-messages'
 import {PearUtils} from '../src/pear-utils'
 
+import {erik, orta} from './fixtures/test-authors'
+
 describe('PearData.init', () => {
   it('creates the file and returns the created message when data file not found', () => {
     PearUtils.fileExists = jest.fn(() => false)
@@ -39,10 +41,8 @@ describe('pearData.current', () => {
   it('returns the array of PearAuthor objects when there are known authors', () => {
     const path = 'test/fixtures/two-current-authors'
     const pearData = new PearData(path)
-    const orta = {username: 'orta', name: 'Orta Therox', email: 'orta@example.com'}
-    const erik = {username: 'erikkrietsch', name: 'Erik Krietsch', email: 'erik@example.com'}
 
-    expect(pearData.current).toEqual([orta, erik])
+    expect(pearData.current).toEqual([erik, orta])
   })
 })
 
@@ -56,9 +56,7 @@ describe('pearData.known', () => {
   it('returns the array of PearAuthor objects when there are known authors', () => {
     const path = 'test/fixtures/two-known-authors'
     const pearData = new PearData(path)
-    const orta = {username: 'orta', name: 'Orta Therox', email: 'orta@example.com'}
-    const erik = {username: 'erikkrietsch', name: 'Erik Krietsch', email: 'erik@example.com'}
 
-    expect(pearData.known).toEqual([orta, erik])
+    expect(pearData.known).toEqual([erik, orta])
   })
 })
