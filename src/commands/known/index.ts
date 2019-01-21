@@ -9,7 +9,7 @@ export default class Known extends Command {
   async run() {
     try {
       const data = new PearData()
-      const known = data.known
+      const known = JSON.stringify(data.known)
       this.log(known)
     } catch (error) {
       this.handleError(error)
