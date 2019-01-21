@@ -34,6 +34,10 @@ export class PearData {
     return this._json
   }
 
+  get current(): PearAuthor[] {
+    return this.json!.current || []
+  }
+
   get known(): PearAuthor[] {
     return this.json!.known || []
   }
