@@ -3,7 +3,7 @@ import {initialData, PearData} from '../src/pear-data'
 import {PearMessages} from '../src/pear-messages'
 import {PearUtils} from '../src/pear-utils'
 
-import {erik, josh, orta} from './fixtures/test-authors'
+import {erik, josh, orta} from './fixtures/authors'
 
 describe('PearData.init', () => {
   it('creates the file and returns the created message when data file not found', () => {
