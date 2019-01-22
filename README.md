@@ -2,6 +2,17 @@
 
 Credit where credit is due.
 
+## Workflows
+
+Pear can be used in any number of ways, but they basically boil down to these:
+
+* copy/paste trailer into commit message
+* amend commit with trailer
+* automate trailer with post commit hook
+
+The first two are more manual in case git hooks aren't your thing while the last
+helps automate.
+
 <!-- toc -->
 * [pear](#pear)
 * [Usage](#usage)
