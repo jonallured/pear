@@ -1,7 +1,7 @@
 import {Command} from '@oclif/command'
 
 import {PearData} from '../pear-data'
-import {PearError, trailersFoundError} from '../pear-errors'
+import {noCurrentAuthorsError, PearError, trailersFoundError} from '../pear-errors'
 import {PearMessages} from '../pear-messages'
 import {PearUtils} from '../pear-utils'
 
@@ -32,8 +32,9 @@ export default class Amend extends Command {
 
   private cleanMessage(currentMessage: string): string {
     const data = new PearData()
-    const trailers = data.trailer()
+    if (data.current.length === 0) throw noCurrentAuthorsError
 
+    const trailers = data.trailer()
     const cleanedMessage = currentMessage.replace(/Co-authored-by[\s\S]*/g, '')
     return cleanedMessage + trailers
   }
