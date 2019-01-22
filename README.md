@@ -1,8 +1,6 @@
-# pear
+# pear [![CircleCI][badge]][circleci]
 
 Credit where credit is due.
-
-[![CircleCI](https://circleci.com/gh/jonallured/pear/tree/master.svg?style=shield)](https://circleci.com/gh/jonallured/pear/tree/master)
 
 <!-- toc -->
 * [pear](#pear)
@@ -140,3 +138,6 @@ USAGE
 
 _See code: [src/commands/known/add.ts](https://github.com/jonallured/pear/blob/v0.1.0/src/commands/known/add.ts)_
 <!-- commandsstop -->
+
+[badge]: https://circleci.com/gh/jonallured/pear.svg?style=svg
+[circleci]: https://circleci.com/gh/jonallured/pear
