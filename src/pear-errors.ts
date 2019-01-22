@@ -22,3 +22,8 @@ export const trailersFoundError: PearError = {
   exit: 400,
   message: 'trailers already in message'
 }
+
+export const noCurrentAuthorsError: PearError = {
+  exit: 500,
+  message: 'no current authors'
+}
