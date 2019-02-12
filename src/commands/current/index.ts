@@ -9,7 +9,7 @@ export default class Current extends Command {
   async run() {
     try {
       const data = new PearData()
-      const current = JSON.stringify(data.current)
+      const current = JSON.stringify(data.current, null, 2)
       this.log(current)
     } catch (error) {
       this.handleError(error)

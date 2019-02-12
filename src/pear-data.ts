@@ -10,7 +10,7 @@ interface PearDataFile {
 }
 
 const blankSlate: PearDataFile = {current: [], known: []}
-export const initialData = JSON.stringify(blankSlate)
+export const initialData = JSON.stringify(blankSlate, null, 2)
 
 export class PearData {
   static init = () => {
@@ -90,7 +90,7 @@ export class PearData {
 
   private writeJson(json: PearDataFile) {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
-    const data = JSON.stringify(json)
+    const data = JSON.stringify(json, null, 2)
     PearUtils.writeFile(this.path, data)
 
     this._json = json
