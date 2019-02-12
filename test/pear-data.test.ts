@@ -75,7 +75,7 @@ describe('pearData.addCurrent', () => {
       const pearData = new PearData(path)
 
       await pearData.addCurrent([erik.username])
-      const expectedData = JSON.stringify({current: [erik], known: [erik, orta]})
+      const expectedData = JSON.stringify({current: [erik], known: [erik, orta]}, null, 2)
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
   })
@@ -93,7 +93,7 @@ describe('pearData.addCurrent', () => {
       const pearData = new PearData(path)
 
       await pearData.addCurrent([josh.username])
-      const expectedData = JSON.stringify({current: [josh], known: [erik, orta, josh]})
+      const expectedData = JSON.stringify({current: [josh], known: [erik, orta, josh]}, null, 2)
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
   })
@@ -109,7 +109,7 @@ describe('pearData.addKnown', () => {
       const pearData = new PearData(path)
 
       await pearData.addKnown([erik.username])
-      const expectedData = JSON.stringify({current: [], known: [erik, orta]})
+      const expectedData = JSON.stringify({current: [], known: [erik, orta]}, null, 2)
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
   })
@@ -127,7 +127,7 @@ describe('pearData.addKnown', () => {
       const pearData = new PearData(path)
 
       await pearData.addKnown([josh.username])
-      const expectedData = JSON.stringify({current: [], known: [erik, orta, josh]})
+      const expectedData = JSON.stringify({current: [], known: [erik, orta, josh]}, null, 2)
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
   })
@@ -142,7 +142,7 @@ describe('pearData.clearCurrent', () => {
     const pearData = new PearData(path)
     pearData.clearCurrent()
 
-    const expectedData = JSON.stringify({current: [], known: [erik, orta]})
+    const expectedData = JSON.stringify({current: [], known: [erik, orta]}, null, 2)
     expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     expect(pearData.current).toEqual([])
   })
