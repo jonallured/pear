@@ -12,6 +12,7 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "@oclif/plugin-autocomplete": "^0.1.4",
     "@oclif/plugin-help": "^2",
     "cli-ux": "^5.0.0",
     "tslib": "^1"
@@ -59,6 +60,7 @@
     "commands": "./lib/commands",
     "bin": "pear",
     "plugins": [
+      "@oclif/plugin-autocomplete",
       "@oclif/plugin-help"
     ]
   },
