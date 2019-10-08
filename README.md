@@ -14,7 +14,6 @@ The first two are more manual in case git hooks aren't your thing while the last
 helps automate.
 
 <!-- toc -->
-* [pear [![CircleCI][badge]][circleci]](#pear-circle-ci-badge-circleci)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
