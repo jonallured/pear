@@ -1,0 +1,4 @@
+#! /bin/sh
+
+cp ./.circleci/npmrc ~/.npmrc
+sed -i "s/REPLACE_ME/${NPM_TOKEN}/g" ~/.npmrc
