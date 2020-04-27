@@ -1,41 +1,101 @@
----
 version: 2
+
+global_defaults: &global_defaults
+  working_directory: ~/pear
+
+build_defaults: &build_defaults
+  steps:
+    - checkout
+    - run:
+        name: Create yarn cache key
+        command: cp yarn.lock yarn-lock-cache.key && node --version >> yarn-lock-cache.key
+    - restore_cache:
+        name: Restore yarn cache
+        key: yarn-{{ checksum "yarn-lock-cache.key" }}
+    - run:
+        name: Yarn install
+        command: yarn install
+    - save_cache:
+        name: Save yarn cache
+        key: yarn-{{ checksum "yarn-lock-cache.key" }}
+        paths:
+          - node_modules/
+
+test_defaults: &test_defaults
+  steps:
+    - checkout
+    - run:
+        name: Create yarn cache key
+        command: cp yarn.lock yarn-lock-cache.key && node --version >> yarn-lock-cache.key
+    - restore_cache:
+        name: Restore yarn cache
+        key: yarn-{{ checksum "yarn-lock-cache.key" }}
+    - run:
+        name: Yarn install
+        command: yarn install
+    - run:
+        name: Get version
+        command: ./bin/run --version
+    - run:
+        name: Show help
+        command: ./bin/run --help
+    - run:
+        name: Run tests
+        command: yarn test
+
+node_10_defaults: &node_10_defaults
+  <<: *global_defaults
+  docker:
+    - image: node:10.20.1
+
+node_12_defaults: &node_12_defaults
+  <<: *global_defaults
+  docker:
+    - image: node:12.16.2
+
+node_14_defaults: &node_14_defaults
+  <<: *global_defaults
+  docker:
+    - image: node:14.0.0
+
 jobs:
-  build-and-test:
-    docker:
-      - image: node:latest
-    working_directory: ~/pear
-    steps:
-      - checkout
+  build-node-10:
+    <<: *node_10_defaults
+    <<: *build_defaults
 
-      - restore_cache:
-          name: Restore yarn cache
-          key: yarn-{{ checksum "yarn.lock" }}
+  test-node-10:
+    <<: *node_10_defaults
+    <<: *test_defaults
 
-      - run:
-          name: Yarn install
-          command: yarn install
+  build-node-12:
+    <<: *node_12_defaults
+    <<: *build_defaults
 
-      - save_cache:
-          name: Save yarn cache
-          key: yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules/
+  test-node-12:
+    <<: *node_12_defaults
+    <<: *test_defaults
 
-      - run:
-          name: Get version
-          command: ./bin/run --version
+  build-node-14:
+    <<: *node_14_defaults
+    <<: *build_defaults
 
-      - run:
-          name: Show help
-          command: ./bin/run --help
-
-      - run:
-          name: Run tests
-          command: yarn test
+  test-node-14:
+    <<: *node_14_defaults
+    <<: *test_defaults
 
 workflows:
   version: 2
-  pear:
+  default:
     jobs:
-      - build-and-test
+      - build-node-10
+      - build-node-12
+      - build-node-14
+      - test-node-10:
+          requires:
+            - build-node-10
+      - test-node-12:
+          requires:
+            - build-node-12
+      - test-node-14:
+          requires:
+            - build-node-14
