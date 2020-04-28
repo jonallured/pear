@@ -69,6 +69,7 @@
     "url": "git+https://github.com/jonallured/pear.git"
   },
   "scripts": {
+    "build": "tsc",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
