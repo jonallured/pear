@@ -90,6 +90,9 @@ jobs:
       - run:
           name: Setup NPM
           command: bash .circleci/setup-npm
+      - run:
+          name: Create yarn cache key
+          command: cp yarn.lock yarn-lock-cache.key && node --version >> yarn-lock-cache.key
       - restore_cache:
           name: Restore yarn cache
           key: yarn-{{ checksum "yarn-lock-cache.key" }}
