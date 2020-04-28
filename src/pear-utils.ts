@@ -1,12 +1,11 @@
-const { execSync } = require("child_process")
-const fs = require("fs")
+import { execSync } from "child_process"
+import { existsSync, readFileSync, writeFileSync } from "fs"
 import cli from "cli-ux"
 
 export const PearUtils = {
-  exec: (command: string): any => execSync(command, { encoding: "utf-8" }),
-  fileExists: (path: string): boolean => fs.existsSync(path),
-  prompt: (omg: string): Promise<string> => cli.prompt(omg),
-  readFile: (path: string): string =>
-    fs.readFileSync(path, { encoding: "utf-8" }),
-  writeFile: (path: string, data: string) => fs.writeFileSync(path, data),
+  exec: (command: string): string => execSync(command, { encoding: "utf-8" }),
+  fileExists: (path: string): boolean => existsSync(path),
+  prompt: (message: string): Promise<string> => cli.prompt(message),
+  readFile: (path: string): string => readFileSync(path, { encoding: "utf-8" }),
+  writeFile: (path: string, data: string): void => writeFileSync(path, data),
 }

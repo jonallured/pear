@@ -1,4 +1,4 @@
-import { PearAuthor } from "./pear-author"
+import { PearAuthor, RawAuthor } from "./pear-author"
 import { PearConfig } from "./pear-config"
 import { noPearDataFileError, noUsernamesError } from "./pear-errors"
 import { PearMessages } from "./pear-messages"
@@ -13,7 +13,7 @@ const blankSlate: PearDataFile = { current: [], known: [] }
 export const initialData = JSON.stringify(blankSlate, null, 2)
 
 export class PearData {
-  static init = () => {
+  static init = (): string => {
     if (PearUtils.fileExists(PearConfig.dataPath()))
       return PearMessages.foundDataFile
 
@@ -21,8 +21,8 @@ export class PearData {
     return PearMessages.createdDataFile
   }
 
-  private static convertToPearAuthor(object: any): PearAuthor {
-    return new PearAuthor(object.email, object.name, object.username)
+  private static convertToPearAuthor(raw: RawAuthor): PearAuthor {
+    return new PearAuthor(raw.email, raw.name, raw.username)
   }
 
   private readonly path: string
@@ -32,21 +32,21 @@ export class PearData {
     this.path = path
   }
 
-  get json() {
+  get json(): PearDataFile {
     if (this._json === undefined) this.loadJson()
 
-    return this._json
+    return this._json! // eslint-disable-line @typescript-eslint/no-non-null-assertion
   }
 
   get current(): PearAuthor[] {
-    return this.json!.current || []
+    return this.json.current || []
   }
 
   get known(): PearAuthor[] {
-    return this.json!.known || []
+    return this.json.known || []
   }
 
-  addCurrent = async (usernames: string[]) => {
+  addCurrent = async (usernames: string[]): Promise<void> => {
     if (usernames.length < 1) throw noUsernamesError
     const knownUsernames: string[] = this.known.map((author) => author.username)
     const newUsernames: string[] = usernames.filter(
@@ -63,7 +63,7 @@ export class PearData {
     this.writeJson(json)
   }
 
-  addKnown = async (usernames: string[]) => {
+  addKnown = async (usernames: string[]): Promise<void> => {
     if (usernames.length < 1) throw noUsernamesError
     const knownUsernames: string[] = this.known.map((author) => author.username)
     const newUsernames: string[] = usernames.filter(
@@ -75,7 +75,7 @@ export class PearData {
     this.writeJson(json)
   }
 
-  clearCurrent = () => {
+  clearCurrent = (): void => {
     const json = { current: [], known: this.known }
     this.writeJson(json)
   }
@@ -85,21 +85,21 @@ export class PearData {
     return trailers.join("\n")
   }
 
-  private loadJson() {
+  private loadJson(): void {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
     const data = PearUtils.readFile(this.path)
     const parsed = JSON.parse(data)
-    const current = parsed.current.map((args: any) =>
-      PearData.convertToPearAuthor(args)
+    const current = parsed.current.map((raw: RawAuthor) =>
+      PearData.convertToPearAuthor(raw)
     )
-    const known = parsed.known.map((args: any) =>
-      PearData.convertToPearAuthor(args)
+    const known = parsed.known.map((raw: RawAuthor) =>
+      PearData.convertToPearAuthor(raw)
     )
 
     this._json = { current, known }
   }
 
-  private writeJson(json: PearDataFile) {
+  private writeJson(json: PearDataFile): void {
     if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
     const data = JSON.stringify(json, null, 2)
     PearUtils.writeFile(this.path, data)

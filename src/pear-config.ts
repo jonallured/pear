@@ -1,6 +1,6 @@
-const os = require("os")
+import { homedir } from "os"
 
 export const PearConfig = {
   dataFile: ".pear-data",
-  dataPath: () => [os.homedir(), PearConfig.dataFile].join("/"),
+  dataPath: (): string => [homedir(), PearConfig.dataFile].join("/"),
 }

@@ -7,7 +7,7 @@ import { PearMessages } from "../../pear-messages"
 export default class ClearCurrent extends Command {
   static description = "clear current authors"
 
-  async run() {
+  async run(): Promise<void> {
     try {
       const data = new PearData()
       await data.clearCurrent()
@@ -17,7 +17,7 @@ export default class ClearCurrent extends Command {
     }
   }
 
-  private handleError(error: PearError) {
+  private handleError(error: PearError): void {
     this.error(error.message, { exit: error.exit })
   }
 }

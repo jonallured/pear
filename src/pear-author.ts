@@ -1,3 +1,9 @@
+export interface RawAuthor {
+  email: string
+  name: string
+  username: string
+}
+
 export class PearAuthor {
   email: string
   name: string

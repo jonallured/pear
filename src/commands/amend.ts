@@ -12,7 +12,7 @@ import { PearUtils } from "../pear-utils"
 export default class Amend extends Command {
   static description = "amend last commit message with trailers"
 
-  async run() {
+  async run(): Promise<void> {
     try {
       const currentMessage = this.getCurrentMessage()
       const newMessage = this.cleanMessage(currentMessage)
@@ -23,7 +23,7 @@ export default class Amend extends Command {
     }
   }
 
-  private handleError(error: PearError) {
+  private handleError(error: PearError): void {
     this.error(error.message, { exit: error.exit })
   }
 
@@ -43,7 +43,7 @@ export default class Amend extends Command {
     return cleanedMessage + trailers
   }
 
-  private amendCommit(newMessage: string) {
+  private amendCommit(newMessage: string): void {
     const amendCommand = `git commit --amend --allow-empty --message "${newMessage}"`
     PearUtils.exec(amendCommand)
   }
