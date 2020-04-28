@@ -76,7 +76,7 @@
     "semi": false
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && oclif-dev manifest",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
     "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
     "prettier-check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
