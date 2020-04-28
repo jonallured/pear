@@ -24,6 +24,7 @@
     "@types/node": "^13.13.4",
     "globby": "^11.0.0",
     "jest": "^25.4.0",
+    "prettier": "^2.0.5",
     "ts-jest": "^25.4.0",
     "ts-node": "^8.9.1",
     "tslint": "^6.1.2",
@@ -68,10 +69,16 @@
     "type": "git",
     "url": "git+https://github.com/jonallured/pear.git"
   },
+  "prettier": {
+    "semi": false
+  },
   "scripts": {
     "build": "tsc",
     "lint": "tslint -p test -t stylish",
-    "test": "jest"
+    "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
+    "prettier-check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "types": "lib/index.d.ts",
   "directories": {
