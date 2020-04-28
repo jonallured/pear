@@ -1,12 +1,16 @@
-import {Command} from '@oclif/command'
+import { Command } from "@oclif/command"
 
-import {PearData} from '../pear-data'
-import {noCurrentAuthorsError, PearError, trailersFoundError} from '../pear-errors'
-import {PearMessages} from '../pear-messages'
-import {PearUtils} from '../pear-utils'
+import { PearData } from "../pear-data"
+import {
+  noCurrentAuthorsError,
+  PearError,
+  trailersFoundError,
+} from "../pear-errors"
+import { PearMessages } from "../pear-messages"
+import { PearUtils } from "../pear-utils"
 
 export default class Amend extends Command {
-  static description = 'amend last commit message with trailers'
+  static description = "amend last commit message with trailers"
 
   async run() {
     try {
@@ -20,13 +24,13 @@ export default class Amend extends Command {
   }
 
   private handleError(error: PearError) {
-    this.error(error.message, {exit: error.exit})
+    this.error(error.message, { exit: error.exit })
   }
 
   private getCurrentMessage(): string {
-    const logCommand = 'git log -1 --pretty=%B'
+    const logCommand = "git log -1 --pretty=%B"
     const message = PearUtils.exec(logCommand)
-    if (message.includes('Co-authored-by:')) throw trailersFoundError
+    if (message.includes("Co-authored-by:")) throw trailersFoundError
     return message
   }
 
@@ -35,7 +39,7 @@ export default class Amend extends Command {
     if (data.current.length === 0) throw noCurrentAuthorsError
 
     const trailers = data.trailer()
-    const cleanedMessage = currentMessage.replace(/Co-authored-by[\s\S]*/g, '')
+    const cleanedMessage = currentMessage.replace(/Co-authored-by[\s\S]*/g, "")
     return cleanedMessage + trailers
   }
 

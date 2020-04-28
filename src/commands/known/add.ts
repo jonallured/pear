@@ -1,11 +1,11 @@
-import {Command} from '@oclif/command'
+import { Command } from "@oclif/command"
 
-import {PearData} from '../../pear-data'
-import {PearError} from '../../pear-errors'
-import {PearMessages} from '../../pear-messages'
+import { PearData } from "../../pear-data"
+import { PearError } from "../../pear-errors"
+import { PearMessages } from "../../pear-messages"
 
 export default class AddKnown extends Command {
-  static description = 'add known author'
+  static description = "add known author"
 
   static strict = false
 
@@ -22,6 +22,6 @@ export default class AddKnown extends Command {
   }
 
   private handleError(error: PearError) {
-    this.error(error.message, {exit: error.exit})
+    this.error(error.message, { exit: error.exit })
   }
 }

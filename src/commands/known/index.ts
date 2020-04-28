@@ -1,10 +1,10 @@
-import {Command} from '@oclif/command'
+import { Command } from "@oclif/command"
 
-import {PearData} from '../../pear-data'
-import {PearError} from '../../pear-errors'
+import { PearData } from "../../pear-data"
+import { PearError } from "../../pear-errors"
 
 export default class Known extends Command {
-  static description = 'list known authors'
+  static description = "list known authors"
 
   async run() {
     try {
@@ -17,6 +17,6 @@ export default class Known extends Command {
   }
 
   private handleError(error: PearError) {
-    this.error(error.message, {exit: error.exit})
+    this.error(error.message, { exit: error.exit })
   }
 }
