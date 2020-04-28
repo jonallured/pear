@@ -40,6 +40,9 @@ test_defaults: &test_defaults
         name: Show help
         command: ./bin/run --help
     - run:
+        name: Lint
+        command: yarn lint
+    - run:
         name: Run tests
         command: yarn test
 

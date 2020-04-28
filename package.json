@@ -70,6 +70,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "lint": "tslint -p test -t stylish",
     "test": "jest",
     "version": "oclif-dev readme && git add README.md"
   },
