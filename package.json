@@ -78,7 +78,8 @@
     "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
     "prettier-check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "type-check": "tsc --pretty --noEmit"
   },
   "types": "lib/index.d.ts",
   "directories": {
