@@ -9,7 +9,7 @@ export default class AddCurrent extends Command {
 
   static strict = false
 
-  async run() {
+  async run(): Promise<void> {
     const usernames = this.parse(AddCurrent).argv
 
     try {
@@ -21,7 +21,7 @@ export default class AddCurrent extends Command {
     }
   }
 
-  private handleError(error: PearError) {
+  private handleError(error: PearError): void {
     this.error(error.message, { exit: error.exit })
   }
 }

@@ -6,7 +6,7 @@ import { PearError } from "../../pear-errors"
 export default class Current extends Command {
   static description = "list current authors"
 
-  async run() {
+  async run(): Promise<void> {
     try {
       const data = new PearData()
       const current = JSON.stringify(data.current, null, 2)
@@ -16,7 +16,7 @@ export default class Current extends Command {
     }
   }
 
-  private handleError(error: PearError) {
+  private handleError(error: PearError): void {
     this.error(error.message, { exit: error.exit })
   }
 }

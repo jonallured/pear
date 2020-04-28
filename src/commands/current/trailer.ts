@@ -6,7 +6,7 @@ import { PearError } from "../../pear-errors"
 export default class Current extends Command {
   static description = "list current authors in trailer format"
 
-  async run() {
+  async run(): Promise<void> {
     try {
       const data = new PearData()
       this.log(data.trailer())
@@ -15,7 +15,7 @@ export default class Current extends Command {
     }
   }
 
-  private handleError(error: PearError) {
+  private handleError(error: PearError): void {
     this.error(error.message, { exit: error.exit })
   }
 }
