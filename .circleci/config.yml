@@ -46,6 +46,9 @@ test_defaults: &test_defaults
         name: Lint
         command: yarn lint
     - run:
+        name: Type check
+        command: yarn type-check
+    - run:
         name: Run tests
         command: yarn test
 
