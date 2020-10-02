@@ -1,0 +1,7 @@
+#! /bin/sh
+set -ex
+
+yarn prettier-check
+yarn lint
+yarn type-check
+yarn test
