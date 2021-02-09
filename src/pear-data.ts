@@ -2,7 +2,7 @@ import { PearAuthor, RawAuthor } from "./pear-author"
 import { PearConfig } from "./pear-config"
 import { noPearDataFileError, noUsernamesError } from "./pear-errors"
 import { PearMessages } from "./pear-messages"
-import { PearUtils } from "./pear-utils"
+import { Pear } from "./shared/Pear"
 
 interface PearDataFile {
   current: PearAuthor[]
@@ -14,10 +14,10 @@ export const initialData = JSON.stringify(blankSlate, null, 2)
 
 export class PearData {
   static init = (): string => {
-    if (PearUtils.fileExists(PearConfig.dataPath()))
+    if (Pear.utils.fileExists(PearConfig.dataPath()))
       return PearMessages.foundDataFile
 
-    PearUtils.writeFile(PearConfig.dataPath(), initialData)
+    Pear.utils.writeFile(PearConfig.dataPath(), initialData)
     return PearMessages.createdDataFile
   }
 
@@ -86,8 +86,8 @@ export class PearData {
   }
 
   private loadJson(): void {
-    if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
-    const data = PearUtils.readFile(this.path)
+    if (!Pear.utils.fileExists(this.path)) throw noPearDataFileError
+    const data = Pear.utils.readFile(this.path)
     const parsed = JSON.parse(data)
     const current = parsed.current.map((raw: RawAuthor) =>
       PearData.convertToPearAuthor(raw)
@@ -100,9 +100,9 @@ export class PearData {
   }
 
   private writeJson(json: PearDataFile): void {
-    if (!PearUtils.fileExists(this.path)) throw noPearDataFileError
+    if (!Pear.utils.fileExists(this.path)) throw noPearDataFileError
     const data = JSON.stringify(json, null, 2)
-    PearUtils.writeFile(this.path, data)
+    Pear.utils.writeFile(this.path, data)
 
     this._json = json
   }
@@ -115,10 +115,10 @@ export class PearData {
   }
 
   private async getAuthorInfo(username: string): Promise<PearAuthor> {
-    const name = await PearUtils.prompt(
+    const name = await Pear.utils.prompt(
       `${username} not found\nname for ${username}`
     )
-    const email = await PearUtils.prompt(`email for ${username}`)
+    const email = await Pear.utils.prompt(`email for ${username}`)
     return new PearAuthor(email, name, username)
   }
 }

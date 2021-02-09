@@ -1,15 +1,15 @@
 import { PearConfig } from "../src/pear-config"
 import { initialData, PearData } from "../src/pear-data"
 import { PearMessages } from "../src/pear-messages"
-import { PearUtils } from "../src/pear-utils"
+import { Pear } from "../src/shared/Pear"
 
 import { erik, josh, orta } from "./fixtures/authors"
 
 describe("PearData.init", () => {
   it("creates the file and returns the created message when data file not found", () => {
-    PearUtils.fileExists = jest.fn(() => false)
+    Pear.utils.fileExists = jest.fn(() => false)
     const mockFileWrite = jest.fn()
-    PearUtils.writeFile = mockFileWrite
+    Pear.utils.writeFile = mockFileWrite
     const expectedPath = "path/to/missing/file"
     PearConfig.dataPath = jest.fn(() => expectedPath)
 
@@ -20,9 +20,9 @@ describe("PearData.init", () => {
   })
 
   it("returns the found message when data file exists", () => {
-    PearUtils.fileExists = jest.fn(() => true)
+    Pear.utils.fileExists = jest.fn(() => true)
     const mockFileWrite = jest.fn()
-    PearUtils.writeFile = mockFileWrite
+    Pear.utils.writeFile = mockFileWrite
 
     const message = PearData.init()
 
@@ -67,9 +67,9 @@ describe("pearData.addCurrent", () => {
       const mockPrompt = jest.fn()
       mockPrompt.mockReturnValueOnce(erik.name)
       mockPrompt.mockReturnValueOnce(erik.email)
-      PearUtils.prompt = mockPrompt
+      Pear.utils.prompt = mockPrompt
       const mockFileWrite = jest.fn()
-      PearUtils.writeFile = mockFileWrite
+      Pear.utils.writeFile = mockFileWrite
 
       const path = "test/fixtures/two-known-authors"
       const pearData = new PearData(path)
@@ -89,9 +89,9 @@ describe("pearData.addCurrent", () => {
       const mockPrompt = jest.fn()
       mockPrompt.mockReturnValueOnce(josh.name)
       mockPrompt.mockReturnValueOnce(josh.email)
-      PearUtils.prompt = mockPrompt
+      Pear.utils.prompt = mockPrompt
       const mockFileWrite = jest.fn()
-      PearUtils.writeFile = mockFileWrite
+      Pear.utils.writeFile = mockFileWrite
 
       const path = "test/fixtures/two-known-authors"
       const pearData = new PearData(path)
@@ -111,7 +111,7 @@ describe("pearData.addKnown", () => {
   describe("with a known author", () => {
     it("does not add a new known author", async () => {
       const mockFileWrite = jest.fn()
-      PearUtils.writeFile = mockFileWrite
+      Pear.utils.writeFile = mockFileWrite
 
       const path = "test/fixtures/two-known-authors"
       const pearData = new PearData(path)
@@ -131,9 +131,9 @@ describe("pearData.addKnown", () => {
       const mockPrompt = jest.fn()
       mockPrompt.mockReturnValueOnce(josh.name)
       mockPrompt.mockReturnValueOnce(josh.email)
-      PearUtils.prompt = mockPrompt
+      Pear.utils.prompt = mockPrompt
       const mockFileWrite = jest.fn()
-      PearUtils.writeFile = mockFileWrite
+      Pear.utils.writeFile = mockFileWrite
 
       const path = "test/fixtures/two-known-authors"
       const pearData = new PearData(path)
@@ -152,7 +152,7 @@ describe("pearData.addKnown", () => {
 describe("pearData.clearCurrent", () => {
   it("sets the current authors to empty array", () => {
     const mockFileWrite = jest.fn()
-    PearUtils.writeFile = mockFileWrite
+    Pear.utils.writeFile = mockFileWrite
 
     const path = "test/fixtures/two-current-authors"
     const pearData = new PearData(path)
