@@ -3,35 +3,35 @@ export interface PearError {
   message: string
 }
 
-const noUsernamesError: PearError = {
-  exit: 100,
-  message: "you have to pass at least one username",
-}
-
-const noPearAuthorsFileError: PearError = {
+const NoAuthorsFile: PearError = {
   exit: 200,
   message: "you have to init",
 }
 
-const noPearDataFileError: PearError = {
-  exit: 300,
-  message: "you have to init",
-}
-
-const trailersFoundError: PearError = {
-  exit: 400,
-  message: "trailers already in message",
-}
-
-const noCurrentAuthorsError: PearError = {
+const NoCurrentAuthors: PearError = {
   exit: 500,
   message: "no current authors",
 }
 
+const NoDataFile: PearError = {
+  exit: 300,
+  message: "you have to init",
+}
+
+const NoUsernames: PearError = {
+  exit: 100,
+  message: "you have to pass at least one username",
+}
+
+const TrailersFound: PearError = {
+  exit: 400,
+  message: "trailers already in message",
+}
+
 export const PearErrors = {
-  noCurrentAuthorsError,
-  noPearAuthorsFileError,
-  noPearDataFileError,
-  noUsernamesError,
-  trailersFoundError,
+  NoAuthorsFile,
+  NoCurrentAuthors,
+  NoDataFile,
+  NoUsernames,
+  TrailersFound,
 }
