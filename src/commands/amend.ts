@@ -7,7 +7,7 @@ import {
   trailersFoundError,
 } from "../pear-errors"
 import { PearMessages } from "../pear-messages"
-import { PearUtils } from "../pear-utils"
+import { Pear } from "../shared/Pear"
 
 export default class Amend extends Command {
   static description = "amend last commit message with trailers"
@@ -29,7 +29,7 @@ export default class Amend extends Command {
 
   private getCurrentMessage(): string {
     const logCommand = "git log -1 --pretty=%B"
-    const message = PearUtils.exec(logCommand)
+    const message = Pear.utils.exec(logCommand)
     if (message.includes("Co-authored-by:")) throw trailersFoundError
     return message
   }
@@ -45,6 +45,6 @@ export default class Amend extends Command {
 
   private amendCommit(newMessage: string): void {
     const amendCommand = `git commit --amend --allow-empty --message "${newMessage}"`
-    PearUtils.exec(amendCommand)
+    Pear.utils.exec(amendCommand)
   }
 }
