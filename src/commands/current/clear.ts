@@ -2,7 +2,7 @@ import { Command } from "@oclif/command"
 
 import { PearData } from "../../pear-data"
 import { PearError } from "../../pear-errors"
-import { PearMessages } from "../../pear-messages"
+import { Pear } from "../../shared/Pear"
 
 export default class ClearCurrent extends Command {
   static description = "clear current authors"
@@ -11,7 +11,7 @@ export default class ClearCurrent extends Command {
     try {
       const data = new PearData()
       await data.clearCurrent()
-      this.log(PearMessages.clearedCurrent)
+      this.log(Pear.messages.clearedCurrent)
     } catch (error) {
       this.handleError(error)
     }

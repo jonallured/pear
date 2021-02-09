@@ -6,7 +6,6 @@ import {
   PearError,
   trailersFoundError,
 } from "../pear-errors"
-import { PearMessages } from "../pear-messages"
 import { Pear } from "../shared/Pear"
 
 export default class Amend extends Command {
@@ -17,7 +16,7 @@ export default class Amend extends Command {
       const currentMessage = this.getCurrentMessage()
       const newMessage = this.cleanMessage(currentMessage)
       this.amendCommit(newMessage)
-      this.log(PearMessages.amendedCommit)
+      this.log(Pear.messages.amendedCommit)
     } catch (error) {
       this.handleError(error)
     }
