@@ -13,7 +13,7 @@ export default class AddKnown extends BaseCommand {
     try {
       const data = new PearData()
       await data.addKnown(usernames)
-      this.log(Pear.messages.addedKnown)
+      this.log(Pear.Messages.AddedKnown)
     } catch (error) {
       this.handleError(error)
     }

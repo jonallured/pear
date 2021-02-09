@@ -9,7 +9,7 @@ export default class ClearCurrent extends BaseCommand {
     try {
       const data = new PearData()
       await data.clearCurrent()
-      this.log(Pear.messages.clearedCurrent)
+      this.log(Pear.Messages.ClearedCurrent)
     } catch (error) {
       this.handleError(error)
     }

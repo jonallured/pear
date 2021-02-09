@@ -10,7 +10,7 @@ export default class Amend extends BaseCommand {
       const currentMessage = this.getCurrentMessage()
       const newMessage = this.cleanMessage(currentMessage)
       this.amendCommit(newMessage)
-      this.log(Pear.messages.amendedCommit)
+      this.log(Pear.Messages.AmendedCommit)
     } catch (error) {
       this.handleError(error)
     }

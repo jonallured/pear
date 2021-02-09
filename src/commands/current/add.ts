@@ -13,7 +13,7 @@ export default class AddCurrent extends BaseCommand {
     try {
       const data = new PearData()
       await data.addCurrent(usernames)
-      this.log(Pear.messages.addedCurrent)
+      this.log(Pear.Messages.AddedCurrent)
     } catch (error) {
       this.handleError(error)
     }

@@ -12,10 +12,10 @@ export const initialData = JSON.stringify(blankSlate, null, 2)
 export class PearData {
   static init = (): string => {
     if (Pear.utils.fileExists(Pear.config.dataPath))
-      return Pear.messages.foundDataFile
+      return Pear.Messages.FoundDataFile
 
     Pear.utils.writeFile(Pear.config.dataPath, initialData)
-    return Pear.messages.createdDataFile
+    return Pear.Messages.CreatedDataFile
   }
 
   private static convertToPearAuthor(raw: RawAuthor): PearAuthor {
