@@ -1,8 +1,7 @@
-import { Command } from "@oclif/command"
-
+import { BaseCommand } from "./BaseCommand"
 import { PearData } from "../pear-data"
 
-export default class Init extends Command {
+export default class Init extends BaseCommand {
   static description = "create the ~/.pear-data file"
 
   async run(): Promise<void> {
