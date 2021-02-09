@@ -19,14 +19,13 @@ export default class Amend extends BaseCommand {
   private getCurrentMessage(): string {
     const logCommand = "git log -1 --pretty=%B"
     const message = Pear.utils.exec(logCommand)
-    if (message.includes("Co-authored-by:"))
-      throw Pear.errors.trailersFoundError
+    if (message.includes("Co-authored-by:")) throw Pear.Errors.TrailersFound
     return message
   }
 
   private cleanMessage(currentMessage: string): string {
     const data = new PearData()
-    if (data.current.length === 0) throw Pear.errors.noCurrentAuthorsError
+    if (data.current.length === 0) throw Pear.Errors.NoCurrentAuthors
 
     const trailers = data.trailer()
     const cleanedMessage = currentMessage.replace(/Co-authored-by[\s\S]*/g, "")
