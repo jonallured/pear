@@ -11,10 +11,10 @@ export const initialData = JSON.stringify(blankSlate, null, 2)
 
 export class PearData {
   static init = (): string => {
-    if (Pear.utils.fileExists(Pear.config.dataPath))
+    if (Pear.Utils.fileExists(Pear.Config.dataPath))
       return Pear.Messages.FoundDataFile
 
-    Pear.utils.writeFile(Pear.config.dataPath, initialData)
+    Pear.Utils.writeFile(Pear.Config.dataPath, initialData)
     return Pear.Messages.CreatedDataFile
   }
 
@@ -25,7 +25,7 @@ export class PearData {
   private readonly path: string
   private _json?: PearDataFile
 
-  constructor(path: string = Pear.config.dataPath) {
+  constructor(path: string = Pear.Config.dataPath) {
     this.path = path
   }
 
@@ -83,8 +83,8 @@ export class PearData {
   }
 
   private loadJson(): void {
-    if (!Pear.utils.fileExists(this.path)) throw Pear.Errors.NoDataFile
-    const data = Pear.utils.readFile(this.path)
+    if (!Pear.Utils.fileExists(this.path)) throw Pear.Errors.NoDataFile
+    const data = Pear.Utils.readFile(this.path)
     const parsed = JSON.parse(data)
     const current = parsed.current.map((raw: RawAuthor) =>
       PearData.convertToPearAuthor(raw)
@@ -97,9 +97,9 @@ export class PearData {
   }
 
   private writeJson(json: PearDataFile): void {
-    if (!Pear.utils.fileExists(this.path)) throw Pear.Errors.NoDataFile
+    if (!Pear.Utils.fileExists(this.path)) throw Pear.Errors.NoDataFile
     const data = JSON.stringify(json, null, 2)
-    Pear.utils.writeFile(this.path, data)
+    Pear.Utils.writeFile(this.path, data)
 
     this._json = json
   }
@@ -112,10 +112,10 @@ export class PearData {
   }
 
   private async getAuthorInfo(username: string): Promise<PearAuthor> {
-    const name = await Pear.utils.prompt(
+    const name = await Pear.Utils.prompt(
       `${username} not found\nname for ${username}`
     )
-    const email = await Pear.utils.prompt(`email for ${username}`)
+    const email = await Pear.Utils.prompt(`email for ${username}`)
     return new PearAuthor(email, name, username)
   }
 }

@@ -18,7 +18,7 @@ export default class Amend extends BaseCommand {
 
   private getCurrentMessage(): string {
     const logCommand = "git log -1 --pretty=%B"
-    const message = Pear.utils.exec(logCommand)
+    const message = Pear.Utils.exec(logCommand)
     if (message.includes("Co-authored-by:")) throw Pear.Errors.TrailersFound
     return message
   }
@@ -34,6 +34,6 @@ export default class Amend extends BaseCommand {
 
   private amendCommit(newMessage: string): void {
     const amendCommand = `git commit --amend --allow-empty --message "${newMessage}"`
-    Pear.utils.exec(amendCommand)
+    Pear.Utils.exec(amendCommand)
   }
 }
