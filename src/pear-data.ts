@@ -1,5 +1,4 @@
 import { PearAuthor, RawAuthor } from "./pear-author"
-import { PearConfig } from "./pear-config"
 import { Pear } from "./shared/Pear"
 
 interface PearDataFile {
@@ -12,10 +11,10 @@ export const initialData = JSON.stringify(blankSlate, null, 2)
 
 export class PearData {
   static init = (): string => {
-    if (Pear.utils.fileExists(PearConfig.dataPath()))
+    if (Pear.utils.fileExists(Pear.config.dataPath))
       return Pear.messages.foundDataFile
 
-    Pear.utils.writeFile(PearConfig.dataPath(), initialData)
+    Pear.utils.writeFile(Pear.config.dataPath, initialData)
     return Pear.messages.createdDataFile
   }
 
@@ -26,7 +25,7 @@ export class PearData {
   private readonly path: string
   private _json?: PearDataFile
 
-  constructor(path: string = PearConfig.dataPath()) {
+  constructor(path: string = Pear.config.dataPath) {
     this.path = path
   }
 

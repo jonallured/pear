@@ -1,4 +1,3 @@
-import { PearConfig } from "../src/pear-config"
 import { initialData, PearData } from "../src/pear-data"
 import { Pear } from "../src/shared/Pear"
 
@@ -10,7 +9,7 @@ describe("PearData.init", () => {
     const mockFileWrite = jest.fn()
     Pear.utils.writeFile = mockFileWrite
     const expectedPath = "path/to/missing/file"
-    PearConfig.dataPath = jest.fn(() => expectedPath)
+    Pear.config.dataPath = expectedPath
 
     const message = PearData.init()
 
