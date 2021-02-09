@@ -2,7 +2,7 @@ import { Command } from "@oclif/command"
 
 import { PearData } from "../../pear-data"
 import { PearError } from "../../pear-errors"
-import { PearMessages } from "../../pear-messages"
+import { Pear } from "../../shared/Pear"
 
 export default class AddKnown extends Command {
   static description = "add known author"
@@ -15,7 +15,7 @@ export default class AddKnown extends Command {
     try {
       const data = new PearData()
       await data.addKnown(usernames)
-      this.log(PearMessages.addedKnown)
+      this.log(Pear.messages.addedKnown)
     } catch (error) {
       this.handleError(error)
     }

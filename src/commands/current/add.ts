@@ -2,7 +2,7 @@ import { Command } from "@oclif/command"
 
 import { PearData } from "../../pear-data"
 import { PearError } from "../../pear-errors"
-import { PearMessages } from "../../pear-messages"
+import { Pear } from "../../shared/Pear"
 
 export default class AddCurrent extends Command {
   static description = "add current author"
@@ -15,7 +15,7 @@ export default class AddCurrent extends Command {
     try {
       const data = new PearData()
       await data.addCurrent(usernames)
-      this.log(PearMessages.addedCurrent)
+      this.log(Pear.messages.addedCurrent)
     } catch (error) {
       this.handleError(error)
     }

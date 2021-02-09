@@ -1,7 +1,6 @@
 import { PearAuthor, RawAuthor } from "./pear-author"
 import { PearConfig } from "./pear-config"
 import { noPearDataFileError, noUsernamesError } from "./pear-errors"
-import { PearMessages } from "./pear-messages"
 import { Pear } from "./shared/Pear"
 
 interface PearDataFile {
@@ -15,10 +14,10 @@ export const initialData = JSON.stringify(blankSlate, null, 2)
 export class PearData {
   static init = (): string => {
     if (Pear.utils.fileExists(PearConfig.dataPath()))
-      return PearMessages.foundDataFile
+      return Pear.messages.foundDataFile
 
     Pear.utils.writeFile(PearConfig.dataPath(), initialData)
-    return PearMessages.createdDataFile
+    return Pear.messages.createdDataFile
   }
 
   private static convertToPearAuthor(raw: RawAuthor): PearAuthor {

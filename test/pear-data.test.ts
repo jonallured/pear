@@ -1,6 +1,5 @@
 import { PearConfig } from "../src/pear-config"
 import { initialData, PearData } from "../src/pear-data"
-import { PearMessages } from "../src/pear-messages"
 import { Pear } from "../src/shared/Pear"
 
 import { erik, josh, orta } from "./fixtures/authors"
@@ -15,7 +14,7 @@ describe("PearData.init", () => {
 
     const message = PearData.init()
 
-    expect(message).toEqual(PearMessages.createdDataFile)
+    expect(message).toEqual(Pear.messages.createdDataFile)
     expect(mockFileWrite).toHaveBeenCalledWith(expectedPath, initialData)
   })
 
@@ -26,7 +25,7 @@ describe("PearData.init", () => {
 
     const message = PearData.init()
 
-    expect(message).toEqual(PearMessages.foundDataFile)
+    expect(message).toEqual(Pear.messages.foundDataFile)
     expect(mockFileWrite).not.toHaveBeenCalled()
   })
 })
