@@ -4,8 +4,8 @@ import { PearMessages } from "./PearMessages"
 import { PearUtils } from "./PearUtils"
 
 export const Pear = {
-  config: PearConfig.instance,
+  Config: PearConfig.instance,
   Errors: PearErrors,
   Messages: PearMessages,
-  utils: PearUtils,
+  Utils: PearUtils,
 }
