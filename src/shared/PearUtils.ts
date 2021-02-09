@@ -1,5 +1,6 @@
 import { execSync } from "child_process"
 import { existsSync, readFileSync, writeFileSync } from "fs"
+import { homedir } from "os"
 import cli from "cli-ux"
 
 const exec = (command: string): string => {
@@ -9,6 +10,10 @@ const exec = (command: string): string => {
 
 const fileExists = (path: string): boolean => {
   return existsSync(path)
+}
+
+const getHomedir = (): string => {
+  return homedir()
 }
 
 const prompt = (message: string): Promise<string> => {
@@ -26,6 +31,7 @@ const writeFile = (path: string, data: string): void => {
 export const PearUtils = {
   exec,
   fileExists,
+  getHomedir,
   prompt,
   readFile,
   writeFile,
