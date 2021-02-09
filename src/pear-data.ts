@@ -1,6 +1,5 @@
 import { PearAuthor, RawAuthor } from "./pear-author"
 import { PearConfig } from "./pear-config"
-import { noPearDataFileError, noUsernamesError } from "./pear-errors"
 import { Pear } from "./shared/Pear"
 
 interface PearDataFile {
@@ -46,7 +45,7 @@ export class PearData {
   }
 
   addCurrent = async (usernames: string[]): Promise<void> => {
-    if (usernames.length < 1) throw noUsernamesError
+    if (usernames.length < 1) throw Pear.errors.noUsernamesError
     const knownUsernames: string[] = this.known.map((author) => author.username)
     const newUsernames: string[] = usernames.filter(
       (username) => !knownUsernames.includes(username)
@@ -63,7 +62,7 @@ export class PearData {
   }
 
   addKnown = async (usernames: string[]): Promise<void> => {
-    if (usernames.length < 1) throw noUsernamesError
+    if (usernames.length < 1) throw Pear.errors.noUsernamesError
     const knownUsernames: string[] = this.known.map((author) => author.username)
     const newUsernames: string[] = usernames.filter(
       (username) => !knownUsernames.includes(username)
@@ -85,7 +84,7 @@ export class PearData {
   }
 
   private loadJson(): void {
-    if (!Pear.utils.fileExists(this.path)) throw noPearDataFileError
+    if (!Pear.utils.fileExists(this.path)) throw Pear.errors.noPearDataFileError
     const data = Pear.utils.readFile(this.path)
     const parsed = JSON.parse(data)
     const current = parsed.current.map((raw: RawAuthor) =>
@@ -99,7 +98,7 @@ export class PearData {
   }
 
   private writeJson(json: PearDataFile): void {
-    if (!Pear.utils.fileExists(this.path)) throw noPearDataFileError
+    if (!Pear.utils.fileExists(this.path)) throw Pear.errors.noPearDataFileError
     const data = JSON.stringify(json, null, 2)
     Pear.utils.writeFile(this.path, data)
 

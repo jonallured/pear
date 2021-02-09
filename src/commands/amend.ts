@@ -1,12 +1,8 @@
 import { Command } from "@oclif/command"
 
 import { PearData } from "../pear-data"
-import {
-  noCurrentAuthorsError,
-  PearError,
-  trailersFoundError,
-} from "../pear-errors"
 import { Pear } from "../shared/Pear"
+import { PearError } from "../shared/PearErrors"
 
 export default class Amend extends Command {
   static description = "amend last commit message with trailers"
@@ -29,13 +25,14 @@ export default class Amend extends Command {
   private getCurrentMessage(): string {
     const logCommand = "git log -1 --pretty=%B"
     const message = Pear.utils.exec(logCommand)
-    if (message.includes("Co-authored-by:")) throw trailersFoundError
+    if (message.includes("Co-authored-by:"))
+      throw Pear.errors.trailersFoundError
     return message
   }
 
   private cleanMessage(currentMessage: string): string {
     const data = new PearData()
-    if (data.current.length === 0) throw noCurrentAuthorsError
+    if (data.current.length === 0) throw Pear.errors.noCurrentAuthorsError
 
     const trailers = data.trailer()
     const cleanedMessage = currentMessage.replace(/Co-authored-by[\s\S]*/g, "")
