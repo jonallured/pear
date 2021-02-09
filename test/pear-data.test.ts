@@ -13,7 +13,7 @@ describe("PearData.init", () => {
 
     const message = PearData.init()
 
-    expect(message).toEqual(Pear.messages.createdDataFile)
+    expect(message).toEqual(Pear.Messages.CreatedDataFile)
     expect(mockFileWrite).toHaveBeenCalledWith(expectedPath, initialData)
   })
 
@@ -24,7 +24,7 @@ describe("PearData.init", () => {
 
     const message = PearData.init()
 
-    expect(message).toEqual(Pear.messages.foundDataFile)
+    expect(message).toEqual(Pear.Messages.FoundDataFile)
     expect(mockFileWrite).not.toHaveBeenCalled()
   })
 })
