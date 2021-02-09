@@ -1,6 +1,7 @@
-import { homedir } from "os"
+import { Pear } from "./shared/Pear"
 
 export const PearConfig = {
   dataFile: ".pear-data",
-  dataPath: (): string => [homedir(), PearConfig.dataFile].join("/"),
+  dataPath: (): string =>
+    [Pear.utils.getHomedir(), PearConfig.dataFile].join("/"),
 }
