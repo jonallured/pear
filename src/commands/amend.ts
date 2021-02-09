@@ -1,10 +1,8 @@
-import { Command } from "@oclif/command"
-
+import { BaseCommand } from "./BaseCommand"
 import { PearData } from "../pear-data"
 import { Pear } from "../shared/Pear"
-import { PearError } from "../shared/PearErrors"
 
-export default class Amend extends Command {
+export default class Amend extends BaseCommand {
   static description = "amend last commit message with trailers"
 
   async run(): Promise<void> {
@@ -16,10 +14,6 @@ export default class Amend extends Command {
     } catch (error) {
       this.handleError(error)
     }
-  }
-
-  private handleError(error: PearError): void {
-    this.error(error.message, { exit: error.exit })
   }
 
   private getCurrentMessage(): string {
