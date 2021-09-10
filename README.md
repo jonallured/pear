@@ -9,7 +9,7 @@ Since Pear is an NPM package, installation can be as easy as:
 ```
 $ npm install --global @jonallured/pear
 // or
-$ yarn add global @jonallured/pear
+$ yarn global add @jonallured/pear
 ```
 
 Note that I've got this under a namespace so you have to specify that.
