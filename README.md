@@ -60,6 +60,14 @@ This sets us up to give credit in our commits to `jonallured`.
 Note: Pear supports multiple authors, so you can add as many authors to your
 current pairing session as you want!
 
+## Change known authors on a new pairing session
+
+To switch known authors we can clear the current known authors and add a new one:
+
+```
+$ pear current:clear
+```
+
 ## Credit current authors on a commit
 
 Once you've got author(s) in your current session, you can use Pear in a number
