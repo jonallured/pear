@@ -52,48 +52,48 @@ test_defaults: &test_defaults
         name: Run tests
         command: yarn test
 
-node_10_defaults: &node_10_defaults
+node_16_defaults: &node_16_defaults
   <<: *global_defaults
   docker:
-    - image: node:10.20.1
+    - image: node:16.20.1
 
-node_12_defaults: &node_12_defaults
+node_18_defaults: &node_18_defaults
   <<: *global_defaults
   docker:
-    - image: node:12.16.2
+    - image: node:18.16.1
 
-node_14_defaults: &node_14_defaults
+node_20_defaults: &node_20_defaults
   <<: *global_defaults
   docker:
-    - image: node:14.0.0
+    - image: node:20.3.1
 
 jobs:
-  build-node-10:
-    <<: *node_10_defaults
+  build-node-16:
+    <<: *node_16_defaults
     <<: *build_defaults
 
-  test-node-10:
-    <<: *node_10_defaults
+  test-node-16:
+    <<: *node_16_defaults
     <<: *test_defaults
 
-  build-node-12:
-    <<: *node_12_defaults
+  build-node-18:
+    <<: *node_18_defaults
     <<: *build_defaults
 
-  test-node-12:
-    <<: *node_12_defaults
+  test-node-18:
+    <<: *node_18_defaults
     <<: *test_defaults
 
-  build-node-14:
-    <<: *node_14_defaults
+  build-node-20:
+    <<: *node_20_defaults
     <<: *build_defaults
 
-  test-node-14:
-    <<: *node_14_defaults
+  test-node-20:
+    <<: *node_20_defaults
     <<: *test_defaults
 
   deploy:
-    <<: *node_12_defaults
+    <<: *node_20_defaults
     steps:
       - checkout
       - run:
@@ -119,18 +119,18 @@ workflows:
   version: 2
   default:
     jobs:
-      - build-node-10
-      - build-node-12
-      - build-node-14
-      - test-node-10:
+      - build-node-16
+      - build-node-18
+      - build-node-20
+      - test-node-16:
           requires:
-            - build-node-10
-      - test-node-12:
+            - build-node-16
+      - test-node-18:
           requires:
-            - build-node-12
-      - test-node-14:
+            - build-node-18
+      - test-node-20:
           requires:
-            - build-node-14
+            - build-node-20
   release:
     jobs:
       - deploy:
