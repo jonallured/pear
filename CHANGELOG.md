@@ -12,12 +12,7 @@ The format is based on [Keep a Changelog][], and this project adheres to
 
 ### Added
 
-* Automate GitHub release process ([#37][]).
-* Add a CHANGELOG ([#36][]).
-
 ### Changed
-
-* Improve the release script ([#37][]).
 
 ### Deprecated
 
@@ -25,15 +20,30 @@ The format is based on [Keep a Changelog][], and this project adheres to
 
 ### Fixed
 
-* Remove duplicates from current ([#35][]).
-
 ### Security
+
+[Unreleased]: https://github.com/jonallured/pear/compare/v0.6.0...HEAD
+
+## [0.6.0][] - 2023-07-11
+
+### Added
+
+* Automate GitHub release process ([#37][]).
+* Add a CHANGELOG ([#36][]).
+
+### Changed
+
+* Improve the release script ([#37][]).
+
+### Fixed
+
+* Remove duplicates from current ([#35][]).
 
 [#35]: https://github.com/jonallured/pear/pull/35
 [#36]: https://github.com/jonallured/pear/pull/36
 [#37]: https://github.com/jonallured/pear/pull/37
 
-[Unreleased]: https://github.com/jonallured/pear/compare/v0.5.0...HEAD
+[0.6.0]: https://github.com/jonallured/pear/compare/v0.5.0...v0.6.0
 
 ## [0.5.0][] - 2023-07-11
 
