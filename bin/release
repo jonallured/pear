@@ -11,6 +11,6 @@ tag_message="Tagging version $new_version"
 sed -i "" "s/$old_version/$new_version/g" $version_files
 git add .
 git commit --message "$commit_message"
-git push origin master
+git push --force origin main
 git tag --annotate v$new_version --message "$tag_message"
 git push origin --tags
