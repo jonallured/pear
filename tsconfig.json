@@ -5,8 +5,9 @@
     "module": "commonjs",
     "outDir": "lib",
     "rootDir": "src",
+    "skipLibCheck": true,
     "strict": true,
-    "target": "es2017"
+    "target": "es2019"
   },
   "include": ["src/**/*"]
 }

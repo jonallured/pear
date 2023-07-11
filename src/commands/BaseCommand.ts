@@ -1,4 +1,4 @@
-import { Command } from "@oclif/command"
+import { Command } from "@oclif/core"
 import { PearError } from "../shared/PearErrors"
 
 export abstract class BaseCommand extends Command {

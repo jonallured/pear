@@ -3,15 +3,15 @@ import { PearAuthor } from "../../src/pear-author"
 export const erik: PearAuthor = new PearAuthor(
   "erik@example.com",
   "Erik Krietsch",
-  "erik"
+  "erik",
 )
 export const josh: PearAuthor = new PearAuthor(
   "josh@example.com",
   "Joshua Davey",
-  "josh"
+  "josh",
 )
 export const orta: PearAuthor = new PearAuthor(
   "orta@example.com",
   "Orta Therox",
-  "orta"
+  "orta",
 )

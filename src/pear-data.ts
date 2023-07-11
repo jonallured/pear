@@ -47,12 +47,12 @@ export class PearData {
     if (usernames.length < 1) throw Pear.Errors.NoUsernames
     const knownUsernames: string[] = this.known.map((author) => author.username)
     const newUsernames: string[] = usernames.filter(
-      (username) => !knownUsernames.includes(username)
+      (username) => !knownUsernames.includes(username),
     )
 
     if (newUsernames.length > 0) await this.addKnown(newUsernames)
     const newCurrentAuthors = this.known.filter((author) =>
-      usernames.includes(author.username)
+      usernames.includes(author.username),
     )
 
     const current = this.current.concat(newCurrentAuthors)
@@ -64,7 +64,7 @@ export class PearData {
     if (usernames.length < 1) throw Pear.Errors.NoUsernames
     const knownUsernames: string[] = this.known.map((author) => author.username)
     const newUsernames: string[] = usernames.filter(
-      (username) => !knownUsernames.includes(username)
+      (username) => !knownUsernames.includes(username),
     )
     const newKnownAuthors: PearAuthor[] = await this.getNewAuthors(newUsernames)
     const known = this.known.concat(newKnownAuthors)
@@ -87,10 +87,10 @@ export class PearData {
     const data = Pear.Utils.readFile(this.path)
     const parsed = JSON.parse(data)
     const current = parsed.current.map((raw: RawAuthor) =>
-      PearData.convertToPearAuthor(raw)
+      PearData.convertToPearAuthor(raw),
     )
     const known = parsed.known.map((raw: RawAuthor) =>
-      PearData.convertToPearAuthor(raw)
+      PearData.convertToPearAuthor(raw),
     )
 
     this._json = { current, known }
@@ -106,14 +106,14 @@ export class PearData {
 
   private async getNewAuthors(usernames: string[]): Promise<PearAuthor[]> {
     const results: Promise<PearAuthor>[] = await usernames.map((arg) =>
-      this.getAuthorInfo(arg)
+      this.getAuthorInfo(arg),
     )
     return Promise.all(results)
   }
 
   private async getAuthorInfo(username: string): Promise<PearAuthor> {
     const name = await Pear.Utils.prompt(
-      `${username} not found\nname for ${username}`
+      `${username} not found\nname for ${username}`,
     )
     const email = await Pear.Utils.prompt(`email for ${username}`)
     return new PearAuthor(email, name, username)
