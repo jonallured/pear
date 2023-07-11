@@ -82,6 +82,25 @@ describe("pearData.addCurrent", () => {
     })
   })
 
+  describe("with duplicate known authors", () => {
+    it("does not add dupes to current", async () => {
+      const mockPrompt = jest.fn()
+      mockPrompt.mockReturnValueOnce(erik.name)
+      mockPrompt.mockReturnValueOnce(erik.email)
+      Pear.Utils.prompt = mockPrompt
+      const mockFileWrite = jest.fn()
+      Pear.Utils.writeFile = mockFileWrite
+
+      const path = "test/fixtures/two-known-authors"
+      const pearData = new PearData(path)
+
+      await pearData.addCurrent([erik.username])
+      await pearData.addCurrent([erik.username])
+
+      expect(pearData.current.length).toEqual(1)
+    })
+  })
+
   describe("with an unknown author", () => {
     it("adds a new known and current author", async () => {
       const mockPrompt = jest.fn()
