@@ -9,3 +9,5 @@ git push --force origin main
 
 git tag --annotate $new_version --message "Tagging $new_version"
 git push origin --tags
+
+gh release create $new_version --generate-notes

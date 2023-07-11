@@ -12,9 +12,12 @@ The format is based on [Keep a Changelog][], and this project adheres to
 
 ### Added
 
+* Automate GitHub release process ([#37][]).
 * Add a CHANGELOG ([#36][]).
 
 ### Changed
+
+* Improve the release script ([#37][]).
 
 ### Deprecated
 
@@ -28,6 +31,7 @@ The format is based on [Keep a Changelog][], and this project adheres to
 
 [#35]: https://github.com/jonallured/pear/pull/35
 [#36]: https://github.com/jonallured/pear/pull/36
+[#37]: https://github.com/jonallured/pear/pull/37
 
 [Unreleased]: https://github.com/jonallured/pear/compare/v0.5.0...HEAD
 
