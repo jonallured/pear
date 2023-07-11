@@ -1,16 +1,11 @@
 #! /bin/sh
 set -ex
 
-old_version=$1
-new_version=$2
+new_version=$(npm version minor --git-tag-version=false)
 
-version_files="package.json"
-commit_message="Bumping version numbers for $new_version"
-tag_message="Tagging version $new_version"
-
-sed -i "" "s/$old_version/$new_version/g" $version_files
-git add .
-git commit --message "$commit_message"
+git add package.json
+git commit --message "Bumping version number for $new_version"
 git push --force origin main
-git tag --annotate v$new_version --message "$tag_message"
+
+git tag --annotate $new_version --message "Tagging $new_version"
 git push origin --tags
