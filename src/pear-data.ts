@@ -55,7 +55,7 @@ export class PearData {
       usernames.includes(author.username),
     )
 
-    const current = this.current.concat(newCurrentAuthors)
+    const current = [...new Set(this.current.concat(newCurrentAuthors))]
     const json = { current, known: this.known }
     this.writeJson(json)
   }
