@@ -1,6 +1,7 @@
 import { BaseCommand } from "./BaseCommand"
 import { PearData } from "../pear-data"
 import { Pear } from "../shared/Pear"
+import { PearError } from "../shared/PearErrors"
 
 export default class Amend extends BaseCommand {
   static description = "amend last commit message with trailers"
@@ -12,7 +13,7 @@ export default class Amend extends BaseCommand {
       this.amendCommit(newMessage)
       this.log(Pear.Messages.AmendedCommit)
     } catch (error) {
-      this.handleError(error)
+      this.handleError(error as PearError)
     }
   }
 

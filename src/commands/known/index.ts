@@ -1,5 +1,6 @@
 import { BaseCommand } from "../BaseCommand"
 import { PearData } from "../../pear-data"
+import { PearError } from "../../shared/PearErrors"
 
 export default class Known extends BaseCommand {
   static description = "list known authors"
@@ -10,7 +11,7 @@ export default class Known extends BaseCommand {
       const known = JSON.stringify(data.known, null, 2)
       this.log(known)
     } catch (error) {
-      this.handleError(error)
+      this.handleError(error as PearError)
     }
   }
 }

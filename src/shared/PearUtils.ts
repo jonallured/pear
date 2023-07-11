@@ -1,7 +1,7 @@
+import { ux } from "@oclif/core"
 import { execSync } from "child_process"
 import { existsSync, readFileSync, writeFileSync } from "fs"
 import { homedir } from "os"
-import cli from "cli-ux"
 
 const exec = (command: string): string => {
   const result = execSync(command, { encoding: "utf-8" })
@@ -17,7 +17,7 @@ const getHomedir = (): string => {
 }
 
 const prompt = (message: string): Promise<string> => {
-  return cli.prompt(message)
+  return ux.prompt(message)
 }
 
 const readFile = (path: string): string => {

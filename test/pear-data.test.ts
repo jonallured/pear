@@ -76,7 +76,7 @@ describe("pearData.addCurrent", () => {
       const expectedData = JSON.stringify(
         { current: [erik], known: [erik, orta] },
         null,
-        2
+        2,
       )
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
@@ -98,7 +98,7 @@ describe("pearData.addCurrent", () => {
       const expectedData = JSON.stringify(
         { current: [josh], known: [erik, orta, josh] },
         null,
-        2
+        2,
       )
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
@@ -118,7 +118,7 @@ describe("pearData.addKnown", () => {
       const expectedData = JSON.stringify(
         { current: [], known: [erik, orta] },
         null,
-        2
+        2,
       )
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
@@ -140,7 +140,7 @@ describe("pearData.addKnown", () => {
       const expectedData = JSON.stringify(
         { current: [], known: [erik, orta, josh] },
         null,
-        2
+        2,
       )
       expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     })
@@ -159,7 +159,7 @@ describe("pearData.clearCurrent", () => {
     const expectedData = JSON.stringify(
       { current: [], known: [erik, orta] },
       null,
-      2
+      2,
     )
     expect(mockFileWrite).toHaveBeenCalledWith(path, expectedData)
     expect(pearData.current).toEqual([])

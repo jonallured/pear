@@ -1,6 +1,7 @@
 import { BaseCommand } from "../BaseCommand"
 import { PearData } from "../../pear-data"
 import { Pear } from "../../shared/Pear"
+import { PearError } from "../../shared/PearErrors"
 
 export default class AddCurrent extends BaseCommand {
   static description = "add current author"
@@ -8,7 +9,8 @@ export default class AddCurrent extends BaseCommand {
   static strict = false
 
   async run(): Promise<void> {
-    const usernames = this.parse(AddCurrent).argv
+    const { argv } = await this.parse(AddCurrent)
+    const usernames = argv as string[]
 
     try {
       const data = new PearData()
@@ -17,7 +19,7 @@ export default class AddCurrent extends BaseCommand {
       this.log(current)
       this.log(Pear.Messages.AddedCurrent)
     } catch (error) {
-      this.handleError(error)
+      this.handleError(error as PearError)
     }
   }
 }
