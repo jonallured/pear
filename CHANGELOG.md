@@ -22,6 +22,18 @@ The format is based on [Keep a Changelog][], and this project adheres to
 
 ### Security
 
+[Unreleased]: https://github.com/jonallured/pear/compare/v0.7.0...HEAD
+
+## [0.7.0][] - 2023-09-29
+
+### Fixed
+
+* Properly separate message from trailers ([#38][])
+
+[#38]: https://github.com/jonallured/pear/pull/38
+
+### Security
+
 [Unreleased]: https://github.com/jonallured/pear/compare/v0.6.0...HEAD
 
 ## [0.6.0][] - 2023-07-11
