@@ -30,7 +30,7 @@ export default class Amend extends BaseCommand {
 
     const trailers = data.trailer()
     const cleanedMessage = currentMessage.replace(/Co-authored-by[\s\S]*/g, "")
-    return cleanedMessage + trailers
+    return cleanedMessage + "\n\n" + trailers
   }
 
   private amendCommit(newMessage: string): void {
