@@ -1,7 +1,7 @@
 {
   "name": "@jonallured/pear",
   "description": "Credit where credit is due.",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "author": "Jon Allured @jonallured",
   "bin": {
     "pear": "./bin/run"
